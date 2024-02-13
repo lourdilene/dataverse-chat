@@ -1,0 +1,28 @@
+/* Footer styles */
+footer {
+  background-color: #232932;
+  color: #fff;
+  padding: 3.12rem 0;
+  /* position: fixed; */
+  text-align: center;
+}
+footer p {
+  font-size: 1.25rem;
+  color: #ffffff;
+  padding-top: 1.25rem;
+}
+
+.container__footer {
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+.socialIcons a {
+  color: #fff;
+  margin-right: 0.62rem;
+  text-decoration: none;
+}
+
+footer i {
+  font-size: 1.8rem;
+}
