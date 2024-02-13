@@ -1,13 +1,11 @@
 import Home from "./views/Home.js";
 import About from "./views/About.js";
 import data from "./data/dataset.js";
+import { renderFooter } from "./components/Footer.js";
+import { renderHeader } from "./components/Header.js";
 import { sortData, filterData } from "./lib/dataFunctions.js";
-// import Api from "./views/Api.js";
 import { setRootEl, setRoutes, onURLChange } from "./router.js";
 import { renderCardUl } from "./components/CardUl.js";
-// import filters from "./lib/filters.js";
-// import { renderCardUl } from "./components/CardUl.js";
-import { renderFiltros } from "./components/Filtros.js";
 let processedData = [];
 
 const routes = {
@@ -19,15 +17,14 @@ setRoutes(routes);
 
 window.addEventListener("DOMContentLoaded", () => {
   const rootElement = document.getElementById("root");
+  const headerElement = document.getElementById("header");
+  const footerElement = document.getElementById("footer");
+
+  headerElement.appendChild(renderHeader());
+  footerElement.appendChild(renderFooter());
+
   setRootEl(rootElement);
 
-  // const filtrosElement = renderFiltros();
-  // rootElement.appendChild(filtrosElement);
-  // console.log(rootElement.querySelector("#filters"));
-
-  // onURLChange();
-  // rootElement.innerHTML = "";
-  // const homeElement = Home(data);
   rootElement.appendChild(Home(data));
 
   const filterSelectElement = rootElement.querySelector("#filters");
@@ -38,9 +35,10 @@ window.addEventListener("DOMContentLoaded", () => {
       filterSelectElement.name,
       filterSelectElement.value
     );
-    rootElement.innerHTML = "";
-    // const updatedHomeElement = Home(processedData);
-    // rootElement.replaceChild(updatedHomeElement, homeElement);
-    rootElement.appendChild(Home(processedData));
+    rootElement.querySelector("#cards").innerHTML = "";
+    console.log(rootElement.querySelector("#cards"));
+    rootElement
+      .querySelector("#cards")
+      .appendChild(renderCardUl(processedData));
   });
 });

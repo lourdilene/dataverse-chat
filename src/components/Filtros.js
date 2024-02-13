@@ -24,9 +24,5 @@ export const renderFiltros = () => {
       Limpar Filtros
     </button>
   `;
-  // const filterSelectElement = filtros.querySelector("#filters");
-  // filterSelectElement.addEventListener("change", function () {
-  //   alert("teste");
-  // });
   return filtros;
 };
