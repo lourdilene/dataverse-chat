@@ -1,4 +1,5 @@
 import { renderCardUl } from "../components/CardUl.js";
+import { getApiKey, setApiKey } from "../lib/apiKey.js";
 
 const Home = (data) => {
   console.log(data);

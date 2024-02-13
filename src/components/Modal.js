@@ -1,3 +1,5 @@
+import { getApiKey, setApiKey } from "../lib/apiKey.js";
+
 export const renderModal = () => {
   const modal = document.createElement("div");
   modal.classList.add("container__modal");
@@ -19,6 +21,15 @@ export const renderModal = () => {
   const closeModalButton = modal.querySelector("#close__modal");
   closeModalButton.addEventListener("click", () => {
     modal.style.display = "none";
+  });
+
+  const inputModal = modal.querySelector("#input__modal");
+  inputModal.value = getApiKey();
+
+  const saveButton = modal.querySelector("#btn__modal");
+  saveButton.addEventListener("click", () => {
+    const newApiKey = inputModal.value;
+    setApiKey(newApiKey);
   });
 
   return modal;
