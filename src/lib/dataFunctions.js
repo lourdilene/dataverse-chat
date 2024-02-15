@@ -22,9 +22,6 @@ export const sortData = (data, sortBy, sortOrder) => {
 };
 
 export const filterData = (data, filterBy, value) => {
-  // console.log(data);
-  // console.log(filterBy);
-  // console.log(value);
   const filterByCamelCase = transformToCamelCase(filterBy);
   const filteredBooks = data.filter((book) => {
     return book.facts[filterByCamelCase] === value;
