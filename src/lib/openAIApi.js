@@ -2,7 +2,7 @@
 // import axios from "axios";
 // const axios = require("axios");
 // import axios from "https://cdn.skypack.dev/axios";
-const OPENAI_API_KEY = "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";
+const OPENAI_API_KEY = "1234";
 
 // const OPENAI_API_KEY = getApiKey();
 
