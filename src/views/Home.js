@@ -24,10 +24,10 @@ const Home = () => {
           <option value="eua">EUA</option>
           </select>
           <label for="order">Ordenar por:</label>
-            <select id="order" name="sort-order" data-testid="select-sort">
+            <select id="order" name="name" data-testid="select-sort">
               <option value="todos" hidden disabled></option>
-              <option value="desc">A-Z</option>
-              <option value="asc">Z-A</option>
+              <option value="asc">A-Z</option>
+              <option value="desc">Z-A</option>
           </select>
 
           <button id="btn-limpar" data-testid="button-clear">
@@ -55,11 +55,11 @@ const Home = () => {
 
   const orderSelectElement = viewEl.querySelector("#order");
   orderSelectElement.addEventListener("change", function () {
-    if (orderSelectElement.value === "asc") {
-      sortedData = sortData(processedData, "idadePersona", "asc");
-    } else if (orderSelectElement.value === "desc") {
-      sortedData = sortData(processedData, "idadePersona", "desc");
-    }
+    sortedData = sortData(
+      processedData,
+      orderSelectElement.name,
+      orderSelectElement.value
+    );
 
     viewEl.querySelector("#cards").innerHTML = "";
     viewEl.querySelector("#cards").appendChild(renderCardUl(sortedData));
