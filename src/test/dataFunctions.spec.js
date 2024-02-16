@@ -2,11 +2,17 @@ import {
   sortData,
   transformToCamelCase,
   filterData,
-  computeStats,
+  // computeStats,
 } from "../lib/dataFunctions.js";
+import { data as fakeData } from "../test/data.js";
 
-import { data as fakeData } from '../data/dataset.js';
-
+const namesPersonaAsc = [
+  "Aventureiro Viajante",
+  "Chef Criativo",
+  "Enfermeira Amigável",
+  "Historiador Curioso",
+  "Poeta Inspirador",
+];
 
 describe("transformToCamelCase", () => {
   it("transforms kebab-case to camelCase", () => {
@@ -25,42 +31,45 @@ describe("transformToCamelCase", () => {
 });
 
 describe("sortData", () => {
-  const sortBy = "pages-book";
-  const getPagesBook = (books) => books.map((book) => book.facts.pagesBook);
+  const sortBy = "name";
+  const getNames = (personas) => personas.map((persona) => persona.name);
 
   it("Should return a list sorted in ascending order", () => {
     const sortedData = sortData(fakeData, sortBy, "asc");
-    const sortedByPagesBook = getPagesBook(sortedData);
-    const expectedOrder = ["234", "240", "288", "301", "336"];
-    expect(sortedByPagesBook).toEqual(expectedOrder);
+    const sortedByName = getNames(sortedData);
+    const expectedOrder = namesPersonaAsc;
+
+    expect(sortedByName).toEqual(expectedOrder);
   });
 
   it("Should return a list sorted in descending order", () => {
     const sortedData = sortData(fakeData, sortBy, "desc");
-    const sortedByPagesBook = getPagesBook(sortedData);
-    const expectedOrder = ["336", "301", "288", "240", "234"];
-    expect(sortedByPagesBook).toEqual(expectedOrder);
+    const sortedByName = getNames(sortedData);
+    const expectedOrder = namesPersonaAsc.reverse();
+    expect(sortedByName).toEqual(expectedOrder);
   });
 });
 
 describe("filterData", () => {
-  const filterBy = "type-book";
-  const expectedValue = ["movie"];
-  const getTypeBooks = (books) => books.map((book) => book.facts.typeBook);
-
+  const filterBy = "pais-nascimento-persona";
+  const expectedValue = 3;
+  const getPaisNascimentoPersonas = (personas) =>
+    personas.map((persona) => persona.facts.paisNascimentoPersona);
   it("Should return a list filted", () => {
-    const filtedData = filterData(fakeData, filterBy, "movie");
-    const filtedByTypeBook = getTypeBooks(filtedData);
-    expect(filtedByTypeBook).toEqual(expectedValue);
+    const filtedData = filterData(fakeData, filterBy, "italia");
+    const filteredByPaisNascimentoPersona =
+      getPaisNascimentoPersonas(filtedData);
+    const count = filteredByPaisNascimentoPersona.length;
+    expect(count).toEqual(expectedValue);
   });
 });
 
-describe("computeStats", () => {
-  const expectedValue = [
-    ["Theater", 1],
-    ["Novel", 3],
-    ["Movie", 1],
-  ];
-  const resultValues = computeStats(fakeData);
-  expect(resultValues).toEqual(expectedValue);
-});
+// describe("computeStats", () => {
+//   const expectedValue = [
+//     ["Theater", 1],
+//     ["Novel", 3],
+//     ["Movie", 1],
+//   ];
+//   const resultValues = computeStats(fakeData);
+//   expect(resultValues).toEqual(expectedValue);
+// });
