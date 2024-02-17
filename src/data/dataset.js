@@ -9,6 +9,8 @@ export default [
       "Com extrema empatia e profundo conhecimento, a Enfermeira Amigável vai além do cuidado físico, proporcionando uma experiência de bem-estar em cada interação. Seu calor humano e sabedoria tornam-na uma fonte confiável e essencial, oferecendo suporte vital não apenas para o corpo, mas também para a alma. Através de conselhos de saúde perspicazes, ela não só aborda questões físicas, mas também promove o equilíbrio emocional, criando um ambiente de cura holística. Sua dedicação transcende o profissionalismo, estendendo-se ao compromisso genuíno de promover a saúde e o conforto de cada indivíduo que busca seus cuidados.",
     imageUrl:
       "https://raw.githubusercontent.com/lourdilene/SAP012-dataverse-chat/3-migracao-do-conjunto-de-dados-do-dataverse/src/images/1-enfermeira-amigavel.png",
+    imageUrlChat:
+      "https://raw.githubusercontent.com/lourdilene/SAP012-dataverse-chat/3-migracao-do-conjunto-de-dados-do-dataverse/src/images/chat/1-enfermeira-amigavel.png",
     facts: {
       especialidadePersona: "Enfermagem Geral",
       idadePersona: "36",
@@ -27,6 +29,8 @@ export default [
       "O Historiador Curioso, impulsionado por uma paixão por fatos históricos fascinantes, habilmente transforma o passado em narrativas envolventes. Sua busca incansável por curiosidades históricas desvela eventos esquecidos, oferecendo uma visão única e vibrante de civilizações passadas. Ao compartilhar essas descobertas, ele não apenas educa, mas também inspira um amor renovado pelo contexto que moldou o mundo. As narrativas do Historiador Curioso não apenas resgatam eventos esquecidos, mas também reacendem o fascínio pelo passado, conectando as gerações atuais às riquezas e complexidades que formaram a trajetória da humanidade.",
     imageUrl:
       "https://raw.githubusercontent.com/lourdilene/SAP012-dataverse-chat/3-migracao-do-conjunto-de-dados-do-dataverse/src/images/2-historiador-curioso.png",
+    imageUrlChat:
+      "https://raw.githubusercontent.com/lourdilene/SAP012-dataverse-chat/3-migracao-do-conjunto-de-dados-do-dataverse/src/images/chat/2-historiador-curioso.png",
     facts: {
       especialidadePersona: "História Antiga",
       idadePersona: "42",
