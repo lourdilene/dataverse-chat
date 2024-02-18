@@ -9,7 +9,7 @@ export const communicateWithOpenAI = async (message) => {
     Authorization: `Bearer ${OPENAI_API_KEY}`,
   };
   const body = JSON.stringify({
-    messages: [{ role: "assistant", content: message }],
+    messages: message,
     model: "gpt-3.5-turbo",
   });
 

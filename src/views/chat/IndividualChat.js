@@ -1,10 +1,10 @@
 import data from "../../data/dataset.js";
-// import { communicateWithOpenAI } from "../lib/openAIApi.js";
+import { communicateWithOpenAI } from "../../lib/openAIApi.js";
 
 const IndividualChat = ({ id }) => {
   const persona = data.find((persona) => persona.id === parseInt(id));
   const viewEl = document.createElement("main");
-  // const personaDescriptionToChat = `Você é um: ${persona.name}.${persona.shortDescription}`;
+  const personaDescriptionToChat = `Você é um: ${persona.name}.${persona.shortDescription}`;
 
   viewEl.innerHTML = `
       <div class="persona">
@@ -25,34 +25,44 @@ const IndividualChat = ({ id }) => {
       </div>
   `;
 
-  // const inputChat = viewEl.querySelector("#input__chat");
-  // const btnEnviar = viewEl.querySelector("#btn__modal");
-  // const messagesChat = viewEl.querySelector("#messages");
+  const inputChat = viewEl.querySelector("#input__chat");
+  const btnEnviar = viewEl.querySelector("#btn__modal");
+  const messagesChat = viewEl.querySelector("#messages");
 
-  // communicateWithOpenAI(personaDescriptionToChat)
-  //   .then((aiResponse) => {
-  //     messagesChat.innerHTML += `<div class="ai-message">${aiResponse}</div>`;
-  //   })
-  //   .catch((error) => {
-  //     console.error("Erro ao se comunicar com a OpenAI", error);
-  //     messagesChat.innerHTML += `<div class="error-message">Erro ao se comunicar com a OpenAI</div>`;
-  //   });
+  const conversationHistory = [
+    { role: "system", content: `Você é um ${personaDescriptionToChat}` },
+  ];
 
-  // btnEnviar.addEventListener("click", async () => {
-  //   const sendMessage = inputChat.value;
+  communicateWithOpenAI(conversationHistory)
+    .then((aiResponse) => {
+      messagesChat.innerHTML += `<div class="ai-message">${aiResponse}</div>`;
+      const message = new Object({ role: "assistant", content: aiResponse });
+      conversationHistory.push(message);
+    })
+    .catch((error) => {
+      console.error("Erro ao se comunicar com a OpenAI", error);
+      messagesChat.innerHTML += `<div class="error-message">Erro ao se comunicar com a OpenAI</div>`;
+    });
 
-  //   inputChat.value = "";
+  btnEnviar.addEventListener("click", async () => {
+    const sendMessage = inputChat.value;
+    const message = new Object({ role: "user", content: sendMessage });
+    conversationHistory.push(message);
 
-  //   messagesChat.innerHTML += `<div class="user-message">${sendMessage}</div>`;
+    inputChat.value = "";
 
-  //   try {
-  //     const response = await communicateWithOpenAI(sendMessage);
-  //     messagesChat.innerHTML += `<div class="ai-message">${response}</div>`;
-  //   } catch (error) {
-  //     console.error("Erro ao se comunicar com a OpenAI", error);
-  //     messagesChat.innerHTML += `<div class="error-message">Erro ao se comunicar com a OpenAI</div>`;
-  //   }
-  // });
+    messagesChat.innerHTML += `<div class="user-message">${sendMessage}</div>`;
+
+    try {
+      const aiResponse = await communicateWithOpenAI(conversationHistory);
+      messagesChat.innerHTML += `<div class="ai-message">${aiResponse}</div>`;
+      const messageAi = new Object({ role: "assistant", content: aiResponse });
+      conversationHistory.push(messageAi);
+    } catch (error) {
+      console.error("Erro ao se comunicar com a OpenAI", error);
+      messagesChat.innerHTML += `<div class="error-message">Erro ao se comunicar com a OpenAI</div>`;
+    }
+  });
 
   return viewEl;
 };

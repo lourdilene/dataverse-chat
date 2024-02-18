@@ -11,7 +11,7 @@ export const renderCardUl = (data) => {
         <div class="content__card">
           <a href="individual-chat?id=${item.id}" class="link__card">
             <dl itemscope itemtype="#">
-              <dt><img src="${item.imageUrlChat}" alt="Imagem do Filme" itemprop="${item.name}" class="image__card" /></dt>
+              <dt><img src="${item.imageUrl}" alt="Imagem do Filme" itemprop="${item.name}" class="image__card" /></dt>
               <dd itemprop="name" class="name__card">${item.name}</dd>
               <dd itemprop="description" class="description__card">${item.description}</dd>
             </dl>
