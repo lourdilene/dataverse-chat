@@ -1,5 +1,4 @@
 main {
-  /* padding: 2.5rem; */
   background-color: var(--color-white);
   border-radius: 1.25rem 1.25rem 0px 0px;
   max-width: 1500px;
@@ -51,9 +50,7 @@ select#order {
   background: transparent;
   border-radius: 5px;
 }
-/* .section-filters .section-filters select:focus {
-  outline: none;
-} */
+
 .section-filters .section-filters select::-ms-expand,
 .section-filters,
 .section-filters select::-ms-expand {
@@ -150,10 +147,7 @@ dl {
   font-size: 14px;
   text-align: center;
 }
-#messagesChatGPT {
-  width: 100%;
-  height: 300px;
-}
+
 .persona {
   display: flex;
   flex-direction: row;
@@ -175,11 +169,36 @@ dl {
   flex-direction: row;
   width: 80%;
   justify-content: center;
-  /* gap: 10px; */
 }
 
 .input__chat input {
-  /* font-size: 1.7rem; */
   width: 100%;
   border-radius: 8px 0 0 8px;
+}
+
+#chat {
+  width: 100%;
+  max-height: 80%;
+  height: 45vh;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.user-message,
+.ai-message {
+  display: inline-block;
+  max-width: 70%;
+  margin-bottom: 5px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.user-message {
+  background-color: #dcf8c6;
+  text-align: right;
+}
+
+.ai-message {
+  background-color: #e5e5ea;
+  text-align: left;
 }
