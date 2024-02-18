@@ -1,7 +1,7 @@
 /* ESTILIZAÇÃO DO CSS */
 header {
   color: var(--color-white);
-  margin-bottom: 3.12rem;
+  height: 15vh;
 }
 .header__container {
   background-color: var(--color-header);

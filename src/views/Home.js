@@ -1,3 +1,4 @@
+import { renderFooter } from "../components/Footer.js";
 import { renderCardUl } from "../components/CardUl.js";
 import { sortData, filterData } from "../lib/dataFunctions.js";
 import data from "../data/dataset.js";
@@ -5,10 +6,9 @@ let processedData = [];
 let sortedData = [];
 
 const Home = () => {
-  const viewEl = document.createElement("div");
+  const viewEl = document.createElement("main");
 
   viewEl.innerHTML = `
-    <main>
     <div class="container__h1">
       <h1>Comunidade Criativa Multifacetada</h1>
     </div>
@@ -36,8 +36,12 @@ const Home = () => {
         </div>
       </section>
       <div id="cards"></div>
-    </main>
   `;
+
+  const parentElement = document.getElementById("root");
+  const footerElement = document.createElement("footer");
+  footerElement.appendChild(renderFooter());
+  parentElement.insertAdjacentElement("afterend", footerElement);
 
   const cardElement = renderCardUl(data);
   viewEl.querySelector("#cards").appendChild(cardElement);

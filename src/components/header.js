@@ -1,11 +1,10 @@
 import renderModal from "./Modal.js";
 
 export const renderHeader = () => {
-  const header = document.createElement("header");
-  header.classList.add("header");
+  const header = document.createElement("div");
+  header.classList.add("header__container");
 
   header.innerHTML = `
-      <div class="header__container">
         <nav class="header__logo">
           <img class="image__logo" src="./images/logoDesktop.png" alt="Logo DataverseChat" />
           <div class="header__links">
@@ -20,7 +19,6 @@ export const renderHeader = () => {
           <a href="">Link painel</a>
           <a id="abrirModalClickMobile" href="#">Chave api</a>
         </div>
-      </div>
   `;
 
   const rootElement = document.getElementById("root");
