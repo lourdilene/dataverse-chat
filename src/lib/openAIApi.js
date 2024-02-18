@@ -27,6 +27,7 @@ export const communicateWithOpenAI = async (message) => {
     const data = await response.json();
     return data.choices[0].message.content;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error("Erro ao fazer a solicitação: ", error);
     throw error; // Lança o erro novamente para ser tratado onde a função for chamada
   }

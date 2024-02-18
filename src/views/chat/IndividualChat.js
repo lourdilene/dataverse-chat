@@ -8,7 +8,7 @@ const IndividualChat = ({ id }) => {
 
   viewEl.innerHTML = `
       <div class="persona">
-        <img src="${persona.imageUrl}" alt="image persona" style="width: 50px; height: 50px;">
+        <img src="${persona.imageUrlChat}" alt="image persona" style="width: 50px; height: 50px;">
         <div class="persona-description">
           <h3>${persona.name}</h3>
           <p>${persona.shortDescription}</p>
@@ -40,6 +40,7 @@ const IndividualChat = ({ id }) => {
       conversationHistory.push(message);
     })
     .catch((error) => {
+      // eslint-disable-next-line no-console
       console.error("Erro ao se comunicar com a OpenAI", error);
       messagesChat.innerHTML += `<div class="error-message">Erro ao se comunicar com a OpenAI</div>`;
     });
@@ -59,6 +60,7 @@ const IndividualChat = ({ id }) => {
       const messageAi = new Object({ role: "assistant", content: aiResponse });
       conversationHistory.push(messageAi);
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error("Erro ao se comunicar com a OpenAI", error);
       messagesChat.innerHTML += `<div class="error-message">Erro ao se comunicar com a OpenAI</div>`;
     }
