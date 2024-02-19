@@ -8,7 +8,7 @@ export const renderHeader = () => {
         <nav class="header__logo">
           <img class="image__logo" src="./images/logoDesktop.png" alt="Logo DataverseChat" />
           <div class="header__links">
-            <a href="">Link painel</a>
+            <a href="group-chat">Link painel</a>
             <a id="abrirModalClick" href="#">Chave api</a>
           </div>
           <a id="mobile" href="#" class="icon">
@@ -16,7 +16,7 @@ export const renderHeader = () => {
           </a>
         </nav>
         <div id="myLinks" class="header__mobile-links">
-          <a href="">Link painel</a>
+          <a href="group-chat">Link painel</a>
           <a id="abrirModalClickMobile" href="#">Chave api</a>
         </div>
   `;
@@ -37,6 +37,7 @@ export const renderHeader = () => {
 
   mobileToggle.addEventListener("click", () => {
     mobileLinks.classList.toggle("show");
+    rootElement.classList.toggle("mobile-menu-open");
   });
 
   return header;
