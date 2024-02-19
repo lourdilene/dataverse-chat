@@ -1,11 +1,13 @@
 import Home from "./views/Home.js";
 import IndividualChat from "./views/chat/IndividualChat.js";
+import GroupChat from "./views/chat/GroupChat.js";
 import { renderHeader } from "./components/Header.js";
 import { setRootEl, setRoutes, onURLChange } from "./router.js";
 
 const routes = {
   "/": Home,
   "/individual-chat": IndividualChat,
+  "/group-chat": GroupChat,
 };
 
 setRoutes(routes);

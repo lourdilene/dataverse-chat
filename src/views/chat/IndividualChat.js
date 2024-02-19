@@ -33,36 +33,40 @@ const IndividualChat = ({ id }) => {
     { role: "system", content: `Você é um ${personaDescriptionToChat}` },
   ];
 
+  const updateChat = (message) => {
+    messagesChat.innerHTML += `<div class="${message.role}-message">${message.content}</div>`;
+    conversationHistory.push(message);
+  };
+
   communicateWithOpenAI(conversationHistory)
     .then((aiResponse) => {
-      messagesChat.innerHTML += `<div class="ai-message">${aiResponse}</div>`;
-      const message = new Object({ role: "assistant", content: aiResponse });
-      conversationHistory.push(message);
+      updateChat({ role: "assistant", content: aiResponse });
     })
     .catch((error) => {
       // eslint-disable-next-line no-console
       console.error("Erro ao se comunicar com a OpenAI", error);
-      messagesChat.innerHTML += `<div class="error-message">Erro ao se comunicar com a OpenAI</div>`;
+      updateChat({
+        role: "error",
+        content: "Erro ao se comunicar com a OpenAI",
+      });
     });
 
   btnEnviar.addEventListener("click", async () => {
     const sendMessage = inputChat.value;
-    const message = new Object({ role: "user", content: sendMessage });
-    conversationHistory.push(message);
+    updateChat({ role: "user", content: sendMessage });
 
     inputChat.value = "";
 
-    messagesChat.innerHTML += `<div class="user-message">${sendMessage}</div>`;
-
     try {
       const aiResponse = await communicateWithOpenAI(conversationHistory);
-      messagesChat.innerHTML += `<div class="ai-message">${aiResponse}</div>`;
-      const messageAi = new Object({ role: "assistant", content: aiResponse });
-      conversationHistory.push(messageAi);
+      updateChat({ role: "assistant", content: aiResponse });
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error("Erro ao se comunicar com a OpenAI", error);
-      messagesChat.innerHTML += `<div class="error-message">Erro ao se comunicar com a OpenAI</div>`;
+      updateChat({
+        role: "error",
+        content: "Erro ao se comunicar com a OpenAI",
+      });
     }
   });
 

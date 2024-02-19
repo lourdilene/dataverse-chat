@@ -202,3 +202,11 @@ dl {
   background-color: #e5e5ea;
   text-align: left;
 }
+
+.content {
+  margin-top: 0;
+}
+
+.content.mobile-menu-open {
+  margin-top: 5vh;
+}
