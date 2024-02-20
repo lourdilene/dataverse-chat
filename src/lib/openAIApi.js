@@ -3,7 +3,6 @@ import { getApiKey } from "../lib/apiKey.js";
 const OPENAI_API_KEY = getApiKey();
 
 export const communicateWithOpenAI = (messages) => {
-  // console.log(messages);
   return new Promise((resolve, reject) => {
     const url = "https://api.openai.com/v1/chat/completions";
     const headers = {

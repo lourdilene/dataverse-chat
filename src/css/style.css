@@ -185,7 +185,7 @@ dl {
 }
 
 .user-message,
-.ai-message {
+.assistant-message {
   display: inline-block;
   max-width: 70%;
   margin-bottom: 5px;
@@ -198,7 +198,7 @@ dl {
   text-align: right;
 }
 
-.ai-message {
+.assistant-message {
   background-color: #e5e5ea;
   text-align: left;
 }
