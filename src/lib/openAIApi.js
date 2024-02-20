@@ -26,6 +26,7 @@ export const communicateWithOpenAI = (messages) => {
         return response.json();
       })
       .then((data) => {
+        console.log(data);
         resolve(data.choices[0].message.content);
       })
       .catch((error) => {

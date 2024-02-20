@@ -1,22 +1,51 @@
 import { communicateWithOpenAI } from "../lib/openAIApi.js";
+import fetchMock from "jest-fetch-mock";
 
-const message = [
-  {
-    role: "system",
-    content: "Olá!",
-  },
-];
+jest.mock("../lib/apiKey.js", () => ({
+  getApiKey: jest.fn(() => "fakeApiKey"),
+}));
 
 describe("communicateWithOpenAI", () => {
-  test("communicateWithOpenAI", () => {
-    return communicateWithOpenAI(message).then((data) => {
-      expect(typeof data).toBe("string");
-    });
+  beforeEach(() => {
+    fetchMock.resetMocks();
+  });
+
+  test("communicateWithOpenAI", async () => {
+    const messages = [
+      {
+        role: "system",
+        content: "Hello, how are you?",
+      },
+    ];
+
+    const fakeResponse = {
+      choices: [
+        {
+          message: {
+            content: "Example response",
+          },
+        },
+      ],
+    };
+
+    fetchMock.mockResponseOnce(JSON.stringify(fakeResponse), { status: 200 });
+
+    const response = await communicateWithOpenAI(messages);
+
+    expect(response).toBe("Example response");
+    expect(fetchMock).toHaveBeenCalledWith(
+      "https://api.openai.com/v1/chat/completions",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer fakeApiKey",
+        },
+        body: JSON.stringify({
+          messages: messages,
+          model: "gpt-3.5-turbo",
+        }),
+      }
+    );
   });
 });
-
-// describe("communicateWithOpenAI", () => {
-//   test("communicateWithOpenAI", async () => {
-//     await expect(communicateWithOpenAI()).resolves.toBe("peanut butter");
-//   });
-// });
