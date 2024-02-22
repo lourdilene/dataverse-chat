@@ -20,19 +20,17 @@ export const communicateWithOpenAI = (messages) => {
       body: body,
     })
       .then((response) => {
-        console.log(response);
         if (!response.ok) {
           throw new Error("Erro ao fazer a solicitação.");
         }
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         resolve(data.choices[0].message.content);
       })
       .catch((error) => {
         // eslint-disable-next-line no-console
-        console.error("Erro ao fazer a solicitação: ", error);
+        console.error("Erro ao fazer a solicitação.", error);
         reject(error);
       });
   });
