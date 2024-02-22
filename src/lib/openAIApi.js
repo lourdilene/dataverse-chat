@@ -30,7 +30,7 @@ export const communicateWithOpenAI = (messages) => {
       })
       .catch((error) => {
         // eslint-disable-next-line no-console
-        console.error("Erro ao fazer a solicitação: ", error);
+        console.error("Erro ao fazer a solicitação.", error);
         reject(error);
       });
   });

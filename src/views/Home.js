@@ -15,20 +15,24 @@ const Home = () => {
     <h2>Uma plataforma que reúne o Artista Expressivo, o Músico Melódico, o Observador de Aves, o Fashionista Elegante e outros. Os usuários podem compartilhar suas criações artísticas, músicas, fotos de aves, dicas de moda, receitas inspiradas na natureza e participar de desafios criativos. Um espaço onde diferentes formas de expressão se encontram.</h2>
       <section>
         <div class="section-filters">
-        <label for="filters" id="search-filters" class="filters">Filtrar por:</label>
-        <select id="filters" name="pais-nascimento-persona" data-testid="select-filter">
-          <option value="Todos" hidden disabled></option>
-          <option value="brasil">Brasil</option>
-          <option value="italia">Itália</option>
-          <option value="argentina">Argentina</option>
-          <option value="eua">EUA</option>
-          </select>
-          <label for="order">Ordenar por:</label>
+          <div class="filter">
+            <label for="filters" id="search-filters" class="filters">Filtrar por:</label>
+            <select id="filters" name="pais-nascimento-persona" data-testid="select-filter">
+              <option value="Todos" hidden disabled></option>
+              <option value="brasil">Brasil</option>
+              <option value="italia">Itália</option>
+              <option value="argentina">Argentina</option>
+              <option value="eua">EUA</option>
+              </select>
+          </div>
+          <div class="filter">
+            <label for="order">Ordenar por:</label>
             <select id="order" name="name" data-testid="select-sort">
               <option value="todos" hidden disabled></option>
               <option value="asc">A-Z</option>
               <option value="desc">Z-A</option>
-          </select>
+            </select>
+          </div>
 
           <button id="btn-limpar" data-testid="button-clear">
             Limpar Filtros

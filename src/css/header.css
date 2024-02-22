@@ -1,7 +1,6 @@
 /* ESTILIZAÇÃO DO CSS */
 header {
   color: var(--color-white);
-  height: 15vh;
 }
 .header__container {
   background-color: var(--color-header);
@@ -39,10 +38,6 @@ header {
   width: auto;
   height: auto;
   margin-top: 0.62rem;
-}
-
-.container__h1 {
-  margin-top: 50px;
 }
 
 /* menu mobile */
