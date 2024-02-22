@@ -20,6 +20,7 @@ export const communicateWithOpenAI = (messages) => {
       body: body,
     })
       .then((response) => {
+        console.log(response);
         if (!response.ok) {
           throw new Error("Erro ao fazer a solicitação.");
         }

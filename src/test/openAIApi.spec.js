@@ -19,6 +19,7 @@ describe("communicateWithOpenAI", () => {
     ];
 
     const fakeResponse = {
+      ok: true,
       choices: [
         {
           message: {
@@ -28,7 +29,7 @@ describe("communicateWithOpenAI", () => {
       ],
     };
 
-    fetchMock.mockResponseOnce(JSON.stringify(fakeResponse), { status: 200 });
+    fetchMock.mockResponseOnce(JSON.stringify(fakeResponse));
 
     const response = await communicateWithOpenAI(messages);
 
