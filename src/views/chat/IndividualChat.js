@@ -1,3 +1,4 @@
+// IndividualChat.js
 import data from "../../data/dataset.js";
 import { renderHeader } from "../../components/Header/Header.js";
 import { communicateWithOpenAI } from "../../lib/openAIApi.js";
@@ -8,7 +9,7 @@ const IndividualChat = ({ id }) => {
   viewEl.classList.add("chat");
   const personaDescriptionToChat = `Você é um: ${persona.name}.${persona.shortDescription}`;
 
-  const header = {
+  const headerData = {
     img: {
       class: "image__persona",
       src: `${persona.imageUrlChat}`,
@@ -21,21 +22,21 @@ const IndividualChat = ({ id }) => {
   };
 
   viewEl.innerHTML = `
-      <div id="chat">
-        <div id="messages"></div>
+    <div id="chat">
+      <div id="messages"></div>
+    </div>
+    <div class="input-content">
+      <div class="input__chat">
+        <input type="text" name="question" value="" id="input__chat"/>
+        <button id="btn__modal">ENVIAR</button>
       </div>
-      <div class="input-content">
-        <div class="input__chat">
-          <input type="text" name="question" value="" id="input__chat"/>
-          <button id="btn__modal">ENVIAR</button>
-        </div>
-      </div>
+    </div>
   `;
 
   const parentElement = document.getElementById("root");
 
   const headerElement = document.createElement("header");
-  headerElement.appendChild(renderHeader(header));
+  headerElement.appendChild(renderHeader(headerData));
   parentElement.insertAdjacentElement("beforebegin", headerElement);
 
   const inputChat = viewEl.querySelector("#input__chat");
@@ -56,7 +57,6 @@ const IndividualChat = ({ id }) => {
       updateChat({ role: "assistant", content: aiResponse });
     })
     .catch((error) => {
-      // eslint-disable-next-line no-console
       console.error("Erro ao se comunicar com a OpenAI", error);
       updateChat({
         role: "error",
@@ -74,7 +74,6 @@ const IndividualChat = ({ id }) => {
       const aiResponse = await communicateWithOpenAI(conversationHistory);
       updateChat({ role: "assistant", content: aiResponse });
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.error("Erro ao se comunicar com a OpenAI", error);
       updateChat({
         role: "error",
@@ -82,17 +81,6 @@ const IndividualChat = ({ id }) => {
       });
     }
   });
-
-  // const rootElement = document.getElementById("root");
-  // const abrirModalClick = viewEl.querySelector("#abrirModalClick");
-  // const abrirModalClickMobile = viewEl.querySelector("#abrirModalClickMobile");
-  // const mobileToggle = viewEl.querySelector("#mobile");
-  // const mobileLinks = viewEl.querySelector("#myLinks");
-
-  // mobileToggle.addEventListener("click", () => {
-  //   mobileLinks.classList.toggle("show");
-  //   rootElement.classList.toggle("mobile-menu-open");
-  // });
 
   return viewEl;
 };

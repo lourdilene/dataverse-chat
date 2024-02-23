@@ -1,0 +1,49 @@
+/* Estilos da Lista de Cards */
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  justify-content: space-between;
+}
+
+.card-list__item {
+  max-width: 20.62rem;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.56);
+}
+
+.card-list__link {
+  text-decoration: none;
+}
+
+.card-list__content {
+  display: flex;
+  border: none;
+  border-radius: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2vh;
+}
+
+.card-list__image {
+  border-radius: 8px 8px 0px 0px;
+  width: 100%;
+}
+
+.card-list__name {
+  max-width: 100%;
+  height: auto;
+  padding: 1rem;
+  color: #374151;
+  font-size: 1.37rem;
+  text-align: center;
+}
+
+.card-list__description {
+  max-height: 100%;
+  height: auto;
+  padding: 1.25rem;
+  color: #9ca3af;
+  font-size: 14px;
+  text-align: justify;
+}

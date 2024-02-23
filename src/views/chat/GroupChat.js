@@ -1,9 +1,10 @@
+// GroupChat.js
 import data from "../../data/dataset.js";
 import { renderHeader } from "../../components/Header/Header.js";
 import { renderPersona } from "../../components/Persona.js";
 import { communicateWithOpenAI } from "../../lib/openAIApi.js";
 
-const header = {
+const headerData = {
   img: {
     class: "image__persona",
     src: "../../images/ccm.png",
@@ -22,28 +23,28 @@ const GroupChat = () => {
   const personas = data;
 
   viewEl.innerHTML = `
-<div class="group-chat-content">
-<div class="mobile-content">
-<div id="chat">
-  <div id="messages"></div>
-</div>
-<div class="input-content">
-  <div class="input__chat">
-    <input type="text" name="question" value="" id="input__chat"/>
-    <button id="btn__modal">ENVIAR</button>
-  </div>
-</div>
-</div>
-<div class="desktop-content">
-<div id="personas-group"></div>
-</div>
-</div>
+    <div class="group-chat-content">
+      <div class="mobile-content">
+        <div id="chat">
+          <div id="messages"></div>
+        </div>
+        <div class="input-content">
+          <div class="input__chat">
+            <input type="text" name="question" value="" id="input__chat"/>
+            <button id="btn__modal">ENVIAR</button>
+          </div>
+        </div>
+      </div>
+      <div class="desktop-content">
+        <div id="personas-group"></div>
+      </div>
+    </div>
   `;
 
   const parentElement = document.getElementById("root");
 
   const headerElement = document.createElement("header");
-  headerElement.appendChild(renderHeader(header));
+  headerElement.appendChild(renderHeader(headerData));
   parentElement.insertAdjacentElement("beforebegin", headerElement);
 
   const inputChat = viewEl.querySelector("#input__chat");
@@ -89,7 +90,6 @@ const GroupChat = () => {
       });
     })
     .catch((error) => {
-      // eslint-disable-next-line no-console
       console.error("Erro ao se comunicar com a OpenAI", error);
     });
 
