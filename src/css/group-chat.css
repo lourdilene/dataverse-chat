@@ -1,6 +1,7 @@
 .mobile-content {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .desktop-content {
@@ -9,10 +10,36 @@
 
 @media only screen and (min-width: 768px) {
   .mobile-content {
-    display: none;
+    width: 70%;
   }
 
   .desktop-content {
-    display: block;
+    width: 30%;
+    display: flex;
+    /* max-height: 80%; */
+    height: 100%;
+    overflow-y: auto;
+  }
+  .group-chat-content {
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    overflow-y: auto;
+    /* width: 30%; */
+  }
+  .persona.group {
+    width: 100%;
+  }
+  .persona-group {
+    width: 100%;
+    background-color: var(--color-white);
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+  }
+  #personas-group {
+    display: flex;
+    flex-direction: column;
   }
 }

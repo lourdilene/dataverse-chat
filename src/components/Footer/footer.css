@@ -1,14 +1,13 @@
 /* Footer styles */
-footer {
-  background-color: #232932;
+.footer {
+  background-color: var(--color-header);
   color: #fff;
   text-align: center;
   height: 15vh;
   width: 100%;
 }
-footer p {
+.footer__text {
   font-size: 1.25rem;
-  color: #ffffff;
   padding-top: 1.25rem;
 }
 
@@ -19,12 +18,17 @@ footer p {
   height: 100%;
 }
 
-.socialIcons a {
+.social-icons__container {
+  display: flex;
+  justify-content: center;
+}
+
+.social-icons__link {
   color: #fff;
   margin-right: 0.62rem;
   text-decoration: none;
 }
 
-footer i {
+.footer__icon {
   font-size: 1.8rem;
 }

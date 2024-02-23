@@ -1,7 +1,17 @@
-import { renderFooter } from "../components/Footer.js";
+import { renderFooter } from "../components/Footer/Footer.js";
+import { renderHeader } from "../components/Header/Header.js";
 import { renderCardUl } from "../components/CardUl.js";
 import { sortData, filterData } from "../lib/dataFunctions.js";
 import data from "../data/dataset.js";
+const header = {
+  img: {
+    class: "image__logo",
+    src: "./images/logoDesktop.png",
+    alt: "Logo DataverseChat",
+  },
+  description: "",
+};
+
 let processedData = [];
 let sortedData = [];
 
@@ -41,8 +51,13 @@ const Home = () => {
       </section>
       <div id="cards"></div>
   `;
-
   const parentElement = document.getElementById("root");
+
+  const headerElement = document.createElement("header");
+  headerElement.appendChild(renderHeader(header));
+  parentElement.insertAdjacentElement("beforebegin", headerElement);
+
+  // const parentElement = document.getElementById("root");
   const footerElement = document.createElement("footer");
   footerElement.appendChild(renderFooter());
   parentElement.insertAdjacentElement("afterend", footerElement);

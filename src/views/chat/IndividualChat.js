@@ -1,19 +1,26 @@
 import data from "../../data/dataset.js";
+import { renderHeader } from "../../components/Header/Header.js";
 import { communicateWithOpenAI } from "../../lib/openAIApi.js";
 
 const IndividualChat = ({ id }) => {
   const persona = data.find((persona) => persona.id === parseInt(id));
   const viewEl = document.createElement("main");
+  viewEl.classList.add("chat");
   const personaDescriptionToChat = `Você é um: ${persona.name}.${persona.shortDescription}`;
 
+  const header = {
+    img: {
+      class: "image__persona",
+      src: `${persona.imageUrlChat}`,
+      alt: "Image persona",
+    },
+    description: {
+      title: `${persona.name}`,
+      subTitle: "",
+    },
+  };
+
   viewEl.innerHTML = `
-      <div class="persona">
-        <img src="${persona.imageUrlChat}" alt="image persona" style="width: 50px; height: 50px;">
-        <div class="persona-description">
-          <h3>${persona.name}</h3>
-          <p>${persona.shortDescription}</p>
-        </div>
-      </div>
       <div id="chat">
         <div id="messages"></div>
       </div>
@@ -24,6 +31,12 @@ const IndividualChat = ({ id }) => {
         </div>
       </div>
   `;
+
+  const parentElement = document.getElementById("root");
+
+  const headerElement = document.createElement("header");
+  headerElement.appendChild(renderHeader(header));
+  parentElement.insertAdjacentElement("beforebegin", headerElement);
 
   const inputChat = viewEl.querySelector("#input__chat");
   const btnEnviar = viewEl.querySelector("#btn__modal");
@@ -69,6 +82,17 @@ const IndividualChat = ({ id }) => {
       });
     }
   });
+
+  // const rootElement = document.getElementById("root");
+  // const abrirModalClick = viewEl.querySelector("#abrirModalClick");
+  // const abrirModalClickMobile = viewEl.querySelector("#abrirModalClickMobile");
+  // const mobileToggle = viewEl.querySelector("#mobile");
+  // const mobileLinks = viewEl.querySelector("#myLinks");
+
+  // mobileToggle.addEventListener("click", () => {
+  //   mobileLinks.classList.toggle("show");
+  //   rootElement.classList.toggle("mobile-menu-open");
+  // });
 
   return viewEl;
 };
