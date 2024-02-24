@@ -1,29 +1,44 @@
+// IndividualChat.js
 import data from "../../data/dataset.js";
+import { renderHeader } from "../../components/Header/Header.js";
 import { communicateWithOpenAI } from "../../lib/openAIApi.js";
 
 const IndividualChat = ({ id }) => {
   const persona = data.find((persona) => persona.id === parseInt(id));
   const viewEl = document.createElement("main");
+  viewEl.classList.add("chat");
   const personaDescriptionToChat = `Você é um: ${persona.name}.${persona.shortDescription}`;
 
+  const headerData = {
+    img: {
+      class: "image__persona",
+      src: `${persona.imageUrlChat}`,
+      alt: "Image persona",
+    },
+    description: {
+      title: `${persona.name}`,
+      subTitle: "",
+    },
+  };
+
   viewEl.innerHTML = `
-      <div class="persona">
-        <img src="${persona.imageUrlChat}" alt="image persona" style="width: 50px; height: 50px;">
-        <div class="persona-description">
-          <h3>${persona.name}</h3>
-          <p>${persona.shortDescription}</p>
-        </div>
-      </div>
+    <div class="chat-content">
       <div id="chat">
         <div id="messages"></div>
       </div>
       <div class="input-content">
-        <div class="input__chat">
-          <input type="text" name="question" value="" id="input__chat"/>
-          <button id="btn__modal">ENVIAR</button>
-        </div>
+      <div class="input__chat">
+        <input type="text" name="question" value="" id="input__chat"/>
+        <button id="btn__modal">ENVIAR</button>
       </div>
+      </div>
+    </div>
   `;
+  const parentElement = document.getElementById("root");
+
+  const headerElement = document.createElement("header");
+  headerElement.appendChild(renderHeader(headerData));
+  parentElement.insertAdjacentElement("beforebegin", headerElement);
 
   const inputChat = viewEl.querySelector("#input__chat");
   const btnEnviar = viewEl.querySelector("#btn__modal");
@@ -43,7 +58,6 @@ const IndividualChat = ({ id }) => {
       updateChat({ role: "assistant", content: aiResponse });
     })
     .catch((error) => {
-      // eslint-disable-next-line no-console
       console.error("Erro ao se comunicar com a OpenAI", error);
       updateChat({
         role: "error",
@@ -61,7 +75,6 @@ const IndividualChat = ({ id }) => {
       const aiResponse = await communicateWithOpenAI(conversationHistory);
       updateChat({ role: "assistant", content: aiResponse });
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.error("Erro ao se comunicar com a OpenAI", error);
       updateChat({
         role: "error",

@@ -1,0 +1,9 @@
+/* Estilos da Lista de Cards */
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  width: 100%;
+  gap: 1rem;
+}

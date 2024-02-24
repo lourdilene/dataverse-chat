@@ -1,0 +1,59 @@
+/* Estilos da Página Home */
+.container__h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.home {
+  background-color: var(--color-white);
+  border-radius: 1.25rem 1.25rem 0px 0px;
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem;
+  padding: 1rem;
+}
+
+.section-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 1.25rem;
+}
+
+.filter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.filter__label {
+  font-size: 20px;
+  color: var(--color-text-01);
+}
+
+.filter__select {
+  font-size: 1.25rem;
+  color: var(--color-text-01);
+  padding: 5px;
+  border: solid 1px var(--color-text-01);
+  border-radius: 5px;
+}
+
+.btn-limpar {
+  background-color: var(--green-500);
+  font-size: 20px;
+  font-weight: normal;
+  border-radius: 5px;
+}
+
+@media only screen and (min-width: 768px) {
+  .section-filters,
+  .section-filters {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .filter {
+    flex-direction: row;
+    align-items: center;
+  }
+}

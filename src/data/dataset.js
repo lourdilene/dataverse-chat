@@ -11,6 +11,7 @@ export default [
       "https://raw.githubusercontent.com/lourdilene/dataverse-chat-app/main/src/images/1-enfermeira-amigavel.png",
     imageUrlChat:
       "https://raw.githubusercontent.com/lourdilene/dataverse-chat-app/main/src/images/chat/1-enfermeira-amigavel.png",
+    quote: "🩺 Propagando sorrisos saudáveis!",
     facts: {
       especialidadePersona: "Enfermagem Geral",
       idadePersona: "36",
@@ -31,6 +32,7 @@ export default [
       "https://raw.githubusercontent.com/lourdilene/dataverse-chat-app/main/src/images/2-historiador-curioso.png",
     imageUrlChat:
       "https://raw.githubusercontent.com/lourdilene/dataverse-chat-app/main/src/images/chat/2-historiador-curioso.png",
+    quote: "📜 Desvendando segredos históricos!",
     facts: {
       especialidadePersona: "História Antiga",
       idadePersona: "42",
@@ -51,6 +53,7 @@ export default [
       "https://raw.githubusercontent.com/lourdilene/dataverse-chat-app/main/src/images/3-chef-criativo.png",
     imageUrlChat:
       "https://raw.githubusercontent.com/lourdilene/dataverse-chat-app/main/src/images/chat/3-chef-criativo.png",
+    quote: "🍳 Transformando sabores em arte!",
     facts: {
       especialidadePersona: "Culinária Contemporânea",
       idadePersona: "45",
@@ -71,6 +74,7 @@ export default [
       "https://raw.githubusercontent.com/lourdilene/dataverse-chat-app/main/src/images/4-aventureiro-viajante.png",
     imageUrlChat:
       "https://raw.githubusercontent.com/lourdilene/dataverse-chat-app/main/src/images/chat/4-aventureiro-viajante.png",
+    quote: "🌍 Navegando por histórias inesquecíveis!",
     facts: {
       especialidadePersona: "Viagens Exóticas",
       idadePersona: "40",

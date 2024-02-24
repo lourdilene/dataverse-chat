@@ -1,21 +1,19 @@
-import { getApiKey, setApiKey } from "../lib/apiKey.js";
+import { getApiKey, setApiKey } from "../../lib/apiKey.js";
 
-export const renderModal = () => {
+const renderModal = () => {
   const modal = document.createElement("div");
-  modal.classList.add("container__modal");
+  modal.classList.add("modal");
 
   modal.innerHTML = `
-  <div id="modal">
-  <a id="close__modal">X</a>
-    <div class="content__modal">
-      <h2>API KEY ChatGPT</h2>
-      <h3>Insira uma Chave API</h3>
-        <div class="input__modal">
-          <input type="text" id="input__modal" />
-          <button id="btn__modal">SALVAR</button>
-        </div>
+    <div class="modal__content">
+      <h2 class="modal__title">API KEY ChatGPT</h2>
+      <h3 class="modal__subtitle">Insira uma Chave API</h3>
+      <div class="modal__input-container">
+        <input type="text" id="input__modal" class="modal__input" />
+        <button id="btn__modal" class="modal__button">SALVAR</button>
+      </div>
     </div>
-  </div>
+    <a id="close__modal" class="modal__close-button">X</a>
   `;
 
   const closeModalButton = modal.querySelector("#close__modal");
