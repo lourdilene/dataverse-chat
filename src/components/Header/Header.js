@@ -1,5 +1,5 @@
 /* eslint-disable indent */
-import renderModal from "../Modal/Modal.js";
+import Modal from "../Modal/Modal.js";
 
 export const Header = (data) => {
   const header = document.createElement("header");
@@ -39,11 +39,11 @@ export const Header = (data) => {
   const mobileLinks = header.querySelector("#myLinks");
 
   abrirModalClick.addEventListener("click", () => {
-    rootElement.appendChild(renderModal());
+    rootElement.appendChild(Modal());
   });
 
   abrirModalClickMobile.addEventListener("click", () => {
-    rootElement.appendChild(renderModal());
+    rootElement.appendChild(Modal());
   });
 
   mobileToggle.addEventListener("click", () => {

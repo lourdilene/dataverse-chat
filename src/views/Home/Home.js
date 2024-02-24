@@ -1,6 +1,6 @@
-import { renderFooter } from "../../components/Footer/Footer.js";
+import { Footer } from "../../components/Footer/Footer.js";
 import { Header } from "../../components/Header/Header.js";
-import { renderCardList } from "../../components/CardList/CardList.js";
+import { CardList } from "../../components/CardList/CardList.js";
 import { sortData, filterData, computeStats } from "../../lib/dataFunctions.js";
 import data from "../../data/dataset.js";
 
@@ -59,11 +59,11 @@ const Home = () => {
   rootElement.insertAdjacentElement("beforebegin", Header(headerContent));
 
   const footerElement = document.createElement("footer");
-  footerElement.appendChild(renderFooter());
+  footerElement.appendChild(Footer());
   rootElement.insertAdjacentElement("afterend", footerElement);
 
   const cardsContainer = mainElement.querySelector("#cards");
-  cardsContainer.appendChild(renderCardList(data));
+  cardsContainer.appendChild(CardList(data));
 
   const filterSelectElement = mainElement.querySelector("#filters");
   const orderSelectElement = mainElement.querySelector("#order");
@@ -84,7 +84,7 @@ const Home = () => {
     );
 
     cardsContainer.innerHTML = "";
-    cardsContainer.appendChild(renderCardList(sortedData));
+    cardsContainer.appendChild(CardList(sortedData));
 
     resultsCount.innerHTML = "";
     resultsCount.innerHTML = `${computeStats(
@@ -100,7 +100,7 @@ const Home = () => {
     filterSelectElement.value = "Todos";
     orderSelectElement.value = "todos";
     resultsCount.innerHTML = "";
-    cardsContainer.appendChild(renderCardList(data));
+    cardsContainer.appendChild(CardList(data));
   });
 
   return mainElement;

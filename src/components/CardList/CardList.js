@@ -1,6 +1,6 @@
 import { Card } from "../Card/Card.js";
 
-export const renderCardList = (data) => {
+export const CardList = (data) => {
   const ul = document.createElement("ul");
   ul.classList.add("card-list");
   ul.id = "cards";
