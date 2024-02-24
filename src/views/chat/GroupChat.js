@@ -11,8 +11,8 @@ const headerData = {
     alt: "Image persona",
   },
   description: {
-    title: "Comunidade Criativa Multifacetada",
-    subTitle: "<p>24 membros, 24 online</p>",
+    title: "Comunidade Criativa",
+    subTitle: "24 membros, 24 online",
   },
 };
 
@@ -28,6 +28,7 @@ const GroupChat = () => {
           <div id="messages"></div>
         </div>
         <div class="input-content">
+          <div id="typing"></div>
           <div class="input__chat">
             <input type="text" name="question" value="" id="input__chat"/>
             <button id="btn__modal">ENVIAR</button>
@@ -48,6 +49,7 @@ const GroupChat = () => {
   const inputChat = viewEl.querySelector("#input__chat");
   const btnEnviar = viewEl.querySelector("#btn__modal");
   const messagesChat = viewEl.querySelector("#messages");
+  const typing = viewEl.querySelector("#typing");
 
   const conversationHistories = [];
 
@@ -73,12 +75,19 @@ const GroupChat = () => {
   };
 
   Promise.all(
-    personas.map((persona) => {
-      return communicateWithOpenAI(conversationHistories[persona.id - 1]);
+    personas.map(async (persona) => {
+      const response = await communicateWithOpenAI(
+        conversationHistories[persona.id - 1]
+      );
+      typing.innerHTML = `${persona.name} está digitando...`;
+      // console.log(typing.innerHTML);
+      // setTimeout(response, 10000);
+      return response;
     })
   )
     .then((responses) => {
       responses.forEach((response, index) => {
+        typing.innerHTML = "";
         const message = {
           role: "assistant",
           content: response,
@@ -104,11 +113,16 @@ const GroupChat = () => {
     try {
       const aiResponses = await Promise.all(
         personas.map(async (persona) => {
-          return communicateWithOpenAI(conversationHistories[persona.id - 1]);
+          const response = await communicateWithOpenAI(
+            conversationHistories[persona.id - 1]
+          );
+          typing.innerHTML = `${persona.name} está digitando...`;
+          return response;
         })
       );
 
       aiResponses.forEach((aiResponse, index) => {
+        typing.innerHTML = "";
         const message = { role: "assistant", content: aiResponse };
         addMessageToPersona(message, index);
         showMessageByPersona(message, index);

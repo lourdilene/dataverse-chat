@@ -1,9 +1,11 @@
 /* ESTILIZAÇÃO DO CSS */
 .header {
+  display: flex;
   color: var(--color-white);
   background-color: var(--color-header);
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.56);
   height: 12vh;
+  padding: 1rem;
 }
 
 .header__logo {
@@ -57,9 +59,9 @@
   display: flex;
 }
 
-.header__toggle-icon {
+.header__toggle-icon::before {
   color: var(--color-white);
-  font-size: 35px;
+  font-size: 2rem;
 }
 
 .header__mobile-links {

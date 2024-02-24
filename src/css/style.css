@@ -25,3 +25,7 @@ body {
   background-color: var(--color-background);
   /* font-weight: bold; */
 }
+
+a {
+  text-decoration: none;
+}
