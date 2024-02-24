@@ -14,7 +14,5 @@ export const Card = (item) => {
         </div>
     `;
 
-  console.log(li);
-
   return li;
 };

@@ -8,9 +8,9 @@ export const renderHeader = (data) => {
   header.innerHTML = `
         <nav class="header__logo">
           <div class="header__logo-container">
-            <img class="${data.img.class}"
-              src="${data.img.src}"
-              alt="${data.img.alt}"/>
+            <img class="${data.img.class}" src="${data.img.src}" alt="${
+    data.img.alt
+  }"/>
             ${data.description.title ? `<p>${data.description.title}</p>` : ``}
             ${
               data.description.subTitle
