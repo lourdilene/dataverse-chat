@@ -1,7 +1,7 @@
 import { renderFooter } from "../../components/Footer/Footer.js";
 import { renderHeader } from "../../components/Header/Header.js";
 import { renderCardList } from "../../components/CardList/CardList.js";
-import { sortData, filterData } from "../../lib/dataFunctions.js";
+import { sortData, filterData, computeStats } from "../../lib/dataFunctions.js";
 import data from "../../data/dataset.js";
 
 const headerContent = {
@@ -48,6 +48,7 @@ const Home = () => {
         Limpar Filtros
       </button>
     </section>
+    <div id="resultsCount"></div>
     <div id="cards" class="cards"></div>
   `;
 
@@ -67,6 +68,7 @@ const Home = () => {
   const filterSelectElement = mainElement.querySelector("#filters");
   const orderSelectElement = mainElement.querySelector("#order");
   const clearButtonElement = mainElement.querySelector("#btn-limpar");
+  const resultsCount = mainElement.querySelector("#resultsCount");
 
   const applyFilter = () => {
     processedData = filterData(
@@ -83,6 +85,11 @@ const Home = () => {
 
     cardsContainer.innerHTML = "";
     cardsContainer.appendChild(renderCardList(sortedData));
+
+    resultsCount.innerHTML = "";
+    resultsCount.innerHTML = `${computeStats(
+      processedData
+    )} resultados retornados`;
   };
 
   filterSelectElement.addEventListener("change", applyFilter);
@@ -92,6 +99,7 @@ const Home = () => {
     cardsContainer.innerHTML = "";
     filterSelectElement.value = "Todos";
     orderSelectElement.value = "todos";
+    resultsCount.innerHTML = "";
     cardsContainer.appendChild(renderCardList(data));
   });
 

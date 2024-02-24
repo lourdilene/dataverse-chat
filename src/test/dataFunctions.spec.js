@@ -2,7 +2,7 @@ import {
   sortData,
   transformToCamelCase,
   filterData,
-  // computeStats,
+  computeStats,
 } from "../lib/dataFunctions.js";
 import { data as fakeData } from "../test/data.js";
 
@@ -64,12 +64,16 @@ describe("filterData", () => {
   });
 });
 
-// describe("computeStats", () => {
-//   const expectedValue = [
-//     ["Theater", 1],
-//     ["Novel", 3],
-//     ["Movie", 1],
-//   ];
-//   const resultValues = computeStats(fakeData);
-//   expect(resultValues).toEqual(expectedValue);
-// });
+describe("computeStats", () => {
+  const expectedValue = 5;
+  const resultValues = computeStats(fakeData);
+  expect(resultValues).toEqual(expectedValue);
+});
+
+describe("computeStats", () => {
+  it("Return value calculated", () => {
+    const expectedValue = 5;
+    const resultValues = computeStats(fakeData);
+    expect(resultValues).toEqual(expectedValue);
+  });
+});

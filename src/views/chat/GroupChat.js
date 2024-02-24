@@ -74,31 +74,52 @@ const GroupChat = () => {
     messagesChat.innerHTML += `<div class="${message.role}-message">${message.content}</div>`;
   };
 
-  Promise.all(
-    personas.map(async (persona) => {
-      const response = await communicateWithOpenAI(
-        conversationHistories[persona.id - 1]
+  (async () => {
+    try {
+      const aiResponses = await Promise.all(
+        personas.map(async (persona) => {
+          const response = await communicateWithOpenAI(
+            conversationHistories[persona.id - 1]
+          );
+          typing.innerHTML = `${persona.name} está digitando...`;
+          return response;
+        })
       );
-      typing.innerHTML = `${persona.name} está digitando...`;
-      // console.log(typing.innerHTML);
-      // setTimeout(response, 10000);
-      return response;
-    })
-  )
-    .then((responses) => {
-      responses.forEach((response, index) => {
+
+      aiResponses.forEach((aiResponse, index) => {
         typing.innerHTML = "";
-        const message = {
-          role: "assistant",
-          content: response,
-        };
+        const message = { role: "assistant", content: aiResponse };
         addMessageToPersona(message, index);
         showMessageByPersona(message, index);
       });
-    })
-    .catch((error) => {
+    } catch (error) {
       console.error("Erro ao se comunicar com a OpenAI", error);
-    });
+    }
+  })();
+
+  // Promise.all(
+  //   personas.map(async (persona) => {
+  //     const response = await communicateWithOpenAI(
+  //       conversationHistories[persona.id - 1]
+  //     );
+  //     typing.innerHTML = `${persona.name} está digitando...`;
+  //     return response;
+  //   })
+  // )
+  //   .then((responses) => {
+  //     responses.forEach((response, index) => {
+  //       typing.innerHTML = "";
+  //       const message = {
+  //         role: "assistant",
+  //         content: response,
+  //       };
+  //       addMessageToPersona(message, index);
+  //       showMessageByPersona(message, index);
+  //     });
+  //   })
+  //   .catch((error) => {
+  //     console.error("Erro ao se comunicar com a OpenAI", error);
+  //   });
 
   btnEnviar.addEventListener("click", async () => {
     const sendMessage = inputChat.value;

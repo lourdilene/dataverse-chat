@@ -45,6 +45,7 @@ const IndividualChat = ({ id }) => {
   const inputChat = viewEl.querySelector("#input__chat");
   const btnEnviar = viewEl.querySelector("#btn__modal");
   const messagesChat = viewEl.querySelector("#messages");
+  const typing = viewEl.querySelector("#typing");
 
   const conversationHistory = [
     { role: "system", content: `Você é um ${personaDescriptionToChat}` },
@@ -56,56 +57,31 @@ const IndividualChat = ({ id }) => {
   };
 
   (async () => {
-    const typing = viewEl.querySelector("#typing");
-    typing.innerHTML = `Digitando...`;
     try {
+      typing.innerHTML = `${persona.name} está digitando...`;
       const response = await communicateWithOpenAI(conversationHistory);
       updateChat({ role: "assistant", content: response });
-      // setTimeout(() => {
-      // }, 1000);
       typing.innerHTML = "";
-      // typing.innerHTML = "";
+      return response;
     } catch (error) {
       console.error("Erro ao se comunicar com a OpenAI", error);
-      updateChat({
-        role: "error",
-        content: "Erro ao se comunicar com a OpenAI",
-      });
     }
   })();
 
-  // communicateWithOpenAI(conversationHistory)
-  //   .then((aiResponse) => {
-  //     updateChat({ role: "assistant", content: aiResponse });
-  //   })
-  //   .catch((error) => {
-  //     console.error("Erro ao se comunicar com a OpenAI", error);
-  //     updateChat({
-  //       role: "error",
-  //       content: "Erro ao se comunicar com a OpenAI",
-  //     });
-  //   });
-
   btnEnviar.addEventListener("click", async () => {
-    const typing = viewEl.querySelector("#typing");
     const sendMessage = inputChat.value;
     updateChat({ role: "user", content: sendMessage });
-
     inputChat.value = "";
+
+    // const typing = viewEl.querySelector("#typing");
+    typing.innerHTML = `${persona.name} está digitando...`;
 
     try {
       const aiResponse = await communicateWithOpenAI(conversationHistory);
-      typing.innerHTML = `Digitando...`;
       updateChat({ role: "assistant", content: aiResponse });
-      setTimeout(() => {
-        typing.innerHTML = "";
-      }, 1000);
+      typing.innerHTML = "";
     } catch (error) {
       console.error("Erro ao se comunicar com a OpenAI", error);
-      updateChat({
-        role: "error",
-        content: "Erro ao se comunicar com a OpenAI",
-      });
     }
   });
 
