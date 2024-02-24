@@ -23,7 +23,6 @@ const GroupChat = () => {
   const personas = data;
 
   viewEl.innerHTML = `
-    <div class="group-chat-content">
       <div class="mobile-content">
         <div id="chat">
           <div id="messages"></div>
@@ -38,7 +37,6 @@ const GroupChat = () => {
       <div class="desktop-content">
         <div id="personas-group"></div>
       </div>
-    </div>
   `;
 
   const parentElement = document.getElementById("root");

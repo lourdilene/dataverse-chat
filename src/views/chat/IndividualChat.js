@@ -22,17 +22,18 @@ const IndividualChat = ({ id }) => {
   };
 
   viewEl.innerHTML = `
-    <div id="chat">
-      <div id="messages"></div>
-    </div>
-    <div class="input-content">
+    <div class="chat-content">
+      <div id="chat">
+        <div id="messages"></div>
+      </div>
+      <div class="input-content">
       <div class="input__chat">
         <input type="text" name="question" value="" id="input__chat"/>
         <button id="btn__modal">ENVIAR</button>
       </div>
+      </div>
     </div>
   `;
-
   const parentElement = document.getElementById("root");
 
   const headerElement = document.createElement("header");

@@ -9,7 +9,10 @@ export const renderPersona = (data) => {
     ul.innerHTML += `
   <div class="persona-group">
     <img src="${item.imageUrlChat}" alt="image item" style="width: 50px; height: 50px;">
-    <p>${item.name}</p>
+    <div class="persona-description">
+      <p>${item.name}</p>
+      <p>${item.quote}</p>
+    </div>
   </div>
     `;
   });

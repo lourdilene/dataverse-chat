@@ -1,6 +1,6 @@
 import Home from "./views/Home/Home.js";
-import IndividualChat from "./views/chat/IndividualChat.js";
-import GroupChat from "./views/chat/GroupChat.js";
+import IndividualChat from "./views/Chat/IndividualChat.js";
+import GroupChat from "./views/Chat/GroupChat.js";
 import { setRootEl, setRoutes, onURLChange } from "./router.js";
 
 const routes = {
