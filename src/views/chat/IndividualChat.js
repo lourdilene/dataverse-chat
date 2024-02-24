@@ -1,6 +1,6 @@
 // IndividualChat.js
 import data from "../../data/dataset.js";
-import { renderHeader } from "../../components/Header/Header.js";
+import { Header } from "../../components/Header/Header.js";
 import { communicateWithOpenAI } from "../../lib/openAIApi.js";
 
 const IndividualChat = ({ id }) => {
@@ -39,7 +39,7 @@ const IndividualChat = ({ id }) => {
   const parentElement = document.getElementById("root");
 
   const headerElement = document.createElement("header");
-  headerElement.appendChild(renderHeader(headerData));
+  headerElement.appendChild(Header(headerData));
   parentElement.insertAdjacentElement("beforebegin", headerElement);
 
   const inputChat = viewEl.querySelector("#input__chat");

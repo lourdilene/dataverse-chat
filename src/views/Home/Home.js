@@ -1,5 +1,5 @@
 import { renderFooter } from "../../components/Footer/Footer.js";
-import { renderHeader } from "../../components/Header/Header.js";
+import { Header } from "../../components/Header/Header.js";
 import { renderCardList } from "../../components/CardList/CardList.js";
 import { sortData, filterData, computeStats } from "../../lib/dataFunctions.js";
 import data from "../../data/dataset.js";
@@ -54,9 +54,9 @@ const Home = () => {
 
   const rootElement = document.getElementById("root");
 
-  const headerElement = document.createElement("header");
-  headerElement.appendChild(renderHeader(headerContent));
-  rootElement.insertAdjacentElement("beforebegin", headerElement);
+  // const headerElement = document.createElement("header");
+  // headerElement.appendChild(Header(headerContent));
+  rootElement.insertAdjacentElement("beforebegin", Header(headerContent));
 
   const footerElement = document.createElement("footer");
   footerElement.appendChild(renderFooter());

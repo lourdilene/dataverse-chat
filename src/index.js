@@ -13,6 +13,10 @@ setRoutes(routes);
 
 window.addEventListener("DOMContentLoaded", () => {
   const rootElement = document.getElementById("root");
+  // const headerElement = document.getElementById("header");
+  // const footerElement = document.getElementById("footer");
+
+  // headerElement.appendChild(Header());
 
   setRootEl(rootElement);
   onURLChange();

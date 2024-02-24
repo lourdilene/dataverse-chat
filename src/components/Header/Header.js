@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 import renderModal from "../Modal/Modal.js";
 
-export const renderHeader = (data) => {
+export const Header = (data) => {
   const header = document.createElement("header");
   header.classList.add("header");
 
