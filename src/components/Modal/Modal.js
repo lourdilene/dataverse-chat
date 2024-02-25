@@ -1,6 +1,6 @@
 import { getApiKey, setApiKey } from "../../lib/apiKey.js";
 
-const renderModal = () => {
+const Modal = () => {
   const modal = document.createElement("div");
   modal.classList.add("modal");
 
@@ -33,4 +33,4 @@ const renderModal = () => {
   return modal;
 };
 
-export default renderModal;
+export default Modal;

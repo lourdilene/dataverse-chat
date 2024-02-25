@@ -18,8 +18,10 @@ const renderView = (pathName, props = {}) => {
   rootEl.innerHTML = "";
 
   const viewFunc = ROUTES[pathName];
+  if (!viewFunc) {
+    return navigateTo("/page/404");
+  }
   const viewEl = viewFunc(props);
-
   rootEl.appendChild(viewEl);
 };
 

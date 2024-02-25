@@ -7,7 +7,7 @@
   width: 100%;
 }
 .footer__text {
-  font-size: 1.25rem;
+  /* font-size: 1.25rem; */
   padding-top: 1.25rem;
 }
 
@@ -30,5 +30,5 @@
 }
 
 .footer__icon {
-  font-size: 1.8rem;
+  /* font-size: 1.8rem; */
 }

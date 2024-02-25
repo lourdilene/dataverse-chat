@@ -1,6 +1,6 @@
 // IndividualChat.js
 import data from "../../data/dataset.js";
-import { renderHeader } from "../../components/Header/Header.js";
+import { Header } from "../../components/Header/Header.js";
 import { communicateWithOpenAI } from "../../lib/openAIApi.js";
 
 const IndividualChat = ({ id }) => {
@@ -8,7 +8,6 @@ const IndividualChat = ({ id }) => {
   const viewEl = document.createElement("main");
   viewEl.classList.add("chat");
   const personaDescriptionToChat = `Você é um: ${persona.name}.${persona.shortDescription}`;
-  // const typing = viewEl.querySelector("#typing");
 
   const headerData = {
     img: {
@@ -18,12 +17,12 @@ const IndividualChat = ({ id }) => {
     },
     description: {
       title: `${persona.name}`,
-      subTitle: "",
+      subTitle: `${persona.quote}`,
     },
   };
 
   viewEl.innerHTML = `
-    <div class="chat-content">
+    <div class="chat-content individual__chat-content">
       <div id="chat">
         <div id="messages"></div>
       </div>
@@ -39,7 +38,7 @@ const IndividualChat = ({ id }) => {
   const parentElement = document.getElementById("root");
 
   const headerElement = document.createElement("header");
-  headerElement.appendChild(renderHeader(headerData));
+  headerElement.appendChild(Header(headerData));
   parentElement.insertAdjacentElement("beforebegin", headerElement);
 
   const inputChat = viewEl.querySelector("#input__chat");

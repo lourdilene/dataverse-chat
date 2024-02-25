@@ -41,7 +41,7 @@
 }
 
 .modal__input {
-  font-size: 1.7rem;
+  /* font-size: 1.7rem; */
   border-radius: 8px;
 }
 
@@ -57,7 +57,7 @@
   margin-top: 10px;
   margin-right: 20px;
   color: #aaa;
-  font-size: 1.7rem;
+  /* font-size: 1.7rem; */
   font-weight: bold;
 }
 
@@ -81,7 +81,7 @@
   }
   .modal__input {
     width: 100%;
-    font-size: 1.7rem;
+    /* font-size: 1.7rem; */
     border-radius: 8px 0 0 8px;
   }
   .modal__button {
