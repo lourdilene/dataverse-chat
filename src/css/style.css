@@ -9,6 +9,8 @@
   --green-500: #428a6e;
   --green-600: #336e59;
   --green-700: #336e59;
+
+  --base-font-size: 16px;
 }
 
 * {
@@ -17,17 +19,34 @@
   box-sizing: border-box;
 }
 
-html,
+html {
+  font-size: var(--base-font-size);
+}
+
 body {
   min-height: 100vh;
   font-family: "Nunito", sans-serif;
   color: #374151;
   background-color: var(--color-background);
-  /* font-weight: bold; */
+  font-size: 1rem;
+}
+
+/* Tamanhos de fonte para diferentes elementos */
+h1 {
+  font-size: 1.5rem; /* 2 vezes o tamanho da fonte base */
+}
+
+h2 {
+  font-size: 1.2rem; /* 1.5 vezes o tamanho da fonte base */
+}
+
+p {
+  font-size: 1rem; /* Tamanho da fonte base */
 }
 
 a {
   text-decoration: none;
+  font-size: 1.3rem;
 }
 
 .hide {
@@ -42,4 +61,12 @@ a {
   width: 80%;
   margin: 50px auto;
   text-align: center;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-left {
+  justify-content: left;
 }

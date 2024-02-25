@@ -27,7 +27,7 @@
   height: auto;
   padding: 1rem;
   color: #374151;
-  font-size: 1.37rem;
+  /* font-size: 1.37rem; */
   text-align: center;
 }
 
@@ -36,7 +36,7 @@
   height: auto;
   padding: 1.25rem;
   color: #9ca3af;
-  font-size: 14px;
+  /* font-size: 14px; */
   text-align: justify;
 }
 

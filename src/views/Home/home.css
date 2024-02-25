@@ -27,12 +27,12 @@
 }
 
 .filter__label {
-  font-size: 20px;
+  /* font-size: 20px; */
   color: var(--color-text-01);
 }
 
 .filter__select {
-  font-size: 1.25rem;
+  /* font-size: 1.25rem; */
   color: var(--color-text-01);
   padding: 5px;
   border: solid 1px var(--color-text-01);
@@ -41,7 +41,7 @@
 
 .btn-limpar {
   background-color: var(--green-500);
-  font-size: 20px;
+  /* font-size: 20px; */
   font-weight: normal;
   border-radius: 5px;
 }
