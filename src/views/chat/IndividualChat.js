@@ -1,4 +1,3 @@
-// IndividualChat.js
 import data from "../../data/dataset.js";
 import { Header } from "../../components/Header/Header.js";
 import { communicateWithOpenAI } from "../../lib/openAIApi.js";

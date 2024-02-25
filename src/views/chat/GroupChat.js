@@ -1,4 +1,3 @@
-// GroupChat.js
 import data from "../../data/dataset.js";
 import { Header } from "../../components/Header/Header.js";
 import { renderPersona } from "../../components/Persona.js";

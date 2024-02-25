@@ -2,32 +2,44 @@ import { getApiKey, setApiKey } from "../../lib/apiKey.js";
 
 const Modal = () => {
   const modal = document.createElement("div");
-  modal.classList.add("modal");
+  modal.classList.add("modal__container");
+  modal.id = "modal__container";
 
   modal.innerHTML = `
+  <div id="modal">
+  <a id="modal__close">X</a>
     <div class="modal__content">
-      <h2 class="modal__title">API KEY ChatGPT</h2>
-      <h3 class="modal__subtitle">Insira uma Chave API</h3>
-      <div class="modal__input-container">
-        <input type="text" id="input__modal" class="modal__input" />
-        <button id="btn__modal" class="modal__button">SALVAR</button>
-      </div>
+      <p>API KEY ChatGPT</p>
+        <div class="modal__input-container">
+          <input type="text" id="modal__input" />
+          <button id="modal__button">SALVAR</button>
+        </div>
     </div>
-    <a id="close__modal" class="modal__close-button">X</a>
+  </div>
   `;
 
-  const closeModalButton = modal.querySelector("#close__modal");
+  const closeModalButton = modal.querySelector("#modal__close");
   closeModalButton.addEventListener("click", () => {
-    modal.style.display = "none";
+    // modal.style.display = "none";
+    const modalContainer = document.querySelector("#modal__container");
+    modalContainer.remove();
+    // console.log(modalContainer);
   });
 
-  const inputModal = modal.querySelector("#input__modal");
+  const inputModal = modal.querySelector("#modal__input");
   inputModal.value = getApiKey();
 
-  const saveButton = modal.querySelector("#btn__modal");
+  const saveButton = modal.querySelector("#modal__button");
   saveButton.addEventListener("click", () => {
     const newApiKey = inputModal.value;
     setApiKey(newApiKey);
+  });
+
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      const modalContainer = document.querySelector("#modal__container");
+      modalContainer.remove();
+    }
   });
 
   return modal;
