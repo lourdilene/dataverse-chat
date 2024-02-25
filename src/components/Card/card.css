@@ -39,3 +39,9 @@
   font-size: 14px;
   text-align: justify;
 }
+
+@media only screen and (min-width: 1200px) {
+  .card-list__item {
+    flex-basis: calc(25% - 1rem);
+  }
+}

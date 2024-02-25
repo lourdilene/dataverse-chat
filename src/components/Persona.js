@@ -7,13 +7,13 @@ export const renderPersona = (data) => {
 
   data.forEach((item) => {
     ul.innerHTML += `
-  <div class="persona-group">
+  <li class="persona-group">
     <img src="${item.imageUrlChat}" alt="image item" style="width: 50px; height: 50px;">
     <div class="persona-description">
       <p>${item.name}</p>
       <p>${item.quote}</p>
     </div>
-  </div>
+  </li>
     `;
   });
   return ul;

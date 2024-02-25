@@ -8,7 +8,6 @@ const IndividualChat = ({ id }) => {
   const viewEl = document.createElement("main");
   viewEl.classList.add("chat");
   const personaDescriptionToChat = `Você é um: ${persona.name}.${persona.shortDescription}`;
-  // const typing = viewEl.querySelector("#typing");
 
   const headerData = {
     img: {
@@ -18,12 +17,12 @@ const IndividualChat = ({ id }) => {
     },
     description: {
       title: `${persona.name}`,
-      subTitle: "",
+      subTitle: `${persona.quote}`,
     },
   };
 
   viewEl.innerHTML = `
-    <div class="chat-content">
+    <div class="chat-content individual__chat-content">
       <div id="chat">
         <div id="messages"></div>
       </div>

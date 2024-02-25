@@ -102,6 +102,10 @@
   display: none;
 }
 
+.individual__chat-content {
+  width: 100%;
+}
+
 @media only screen and (min-width: 768px) {
   .mobile-content {
     width: 70%;
@@ -131,6 +135,7 @@
     align-items: center;
     padding: 0.3rem;
     border-top: 0.1rem solid var(--color-line);
+    gap: 0.6rem;
   }
 
   .persona-description {
@@ -139,8 +144,8 @@
     display: flex;
     flex-direction: column;
     justify-content: left;
-    align-items: center;
     gap: 0.1rem;
+    align-items: baseline;
   }
 
   #personas-group {

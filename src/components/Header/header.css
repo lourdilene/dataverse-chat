@@ -1,11 +1,23 @@
 /* ESTILIZAÇÃO DO CSS */
 .header {
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
   color: var(--color-white);
   background-color: var(--color-header);
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.56);
   height: 12vh;
   padding: 1rem;
+  width: 100%;
+}
+
+.header__text {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 0.3rem;
+  height: 100%;
 }
 
 .header__logo {
@@ -20,6 +32,9 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-direction: row;
+  justify-content: center;
+  width: 70%;
 }
 
 .header__links {
@@ -41,8 +56,8 @@
 }
 
 .image__logo {
-  width: 100%;
-  height: 12vh;
+  /* width: 100%; */
+  height: 10vh;
 }
 
 .image__persona {
@@ -61,6 +76,11 @@
 
 .header__toggle-icon::before {
   color: var(--color-white);
+  font-size: 1.5rem;
+}
+
+.fa-arrow-left::before {
+  color: var(--color-white);
   font-size: 2rem;
 }
 
@@ -78,21 +98,35 @@
 .header__mobile-link {
   display: flex;
   color: var(--color-white);
+  width: 100%;
 }
 
 .header__links--desktop {
   display: none;
 }
 
+.arrow-left {
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent; /* Ajuste conforme necessário */
+  border-bottom: 5px solid transparent; /* Ajuste conforme necessário */
+  border-right: 10px solid #dcf8c6; /* Cor verde do WhatsApp e largura do traço */
+  position: relative;
+}
+
 /* For desktop: */
 @media only screen and (min-width: 768px) {
-  .header__links--desktop {
-    display: flex;
-  }
-
-  .header__logo {
+  .header {
     justify-content: space-between;
   }
+  .header__links--desktop {
+    display: flex;
+    width: 30%;
+  }
+
+  /* .header__logo {
+    justify-content: space-between;
+  } */
 
   .header__toggle {
     display: none;
