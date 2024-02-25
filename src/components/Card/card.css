@@ -25,18 +25,19 @@
 .card-list__name {
   max-width: 100%;
   height: auto;
-  padding: 1rem;
+  padding-top: 1rem;
   color: #374151;
-  /* font-size: 1.37rem; */
+  font-size: 1rem;
+  font-weight: 600;
   text-align: center;
 }
 
 .card-list__description {
   max-height: 100%;
   height: auto;
-  padding: 1.25rem;
+  padding: 1rem;
   color: #9ca3af;
-  /* font-size: 14px; */
+  font-size: 0.9rem;
   text-align: justify;
 }
 

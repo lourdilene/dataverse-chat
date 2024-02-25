@@ -1,7 +1,11 @@
-/* Estilos da Página Home */
 .container__h1 {
   text-align: center;
   margin-bottom: 20px;
+}
+
+.home-description {
+  text-align: justify;
+  font-weight: 500;
 }
 
 .home {

@@ -75,7 +75,7 @@
 
 .header__toggle-icon::before {
   color: var(--color-white);
-  /* font-size: 1.5rem; */
+  font-size: 2rem;
 }
 
 .fa-arrow-left::before {
@@ -98,6 +98,13 @@
   display: flex;
   color: var(--color-white);
   width: 100%;
+  justify-content: right;
+  padding-right: 2rem;
+  padding-bottom: unset;
+  border-top: 0.1rem solid;
+  clip-path: padding-box;
+  align-items: center;
+  height: 4vh;
 }
 
 .header__links--desktop {
