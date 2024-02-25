@@ -105,14 +105,14 @@
   display: none;
 }
 
-.arrow-left {
+/* .arrow-left {
   width: 0;
   height: 0;
-  border-top: 5px solid transparent; /* Ajuste conforme necessário */
-  border-bottom: 5px solid transparent; /* Ajuste conforme necessário */
-  border-right: 10px solid #dcf8c6; /* Cor verde do WhatsApp e largura do traço */
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 10px solid #dcf8c6;
   position: relative;
-}
+} */
 
 /* For desktop: */
 @media only screen and (min-width: 768px) {
