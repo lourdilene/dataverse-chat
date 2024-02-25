@@ -1,4 +1,4 @@
 [[redirects]]
-from = "/src*"
+from = "/*"
 to = "index.html"
 status = 200
