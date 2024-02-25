@@ -3,6 +3,9 @@ import { Header } from "../../components/Header/Header.js";
 import { renderPersona } from "../../components/Persona.js";
 import { communicateWithOpenAI } from "../../lib/openAIApi.js";
 
+const bodyElement = document.querySelector("body");
+bodyElement.classList.add("chat-page");
+
 const headerData = {
   img: {
     class: "image__persona",
@@ -41,9 +44,7 @@ const GroupChat = () => {
 
   const parentElement = document.getElementById("root");
 
-  const headerElement = document.createElement("header");
-  headerElement.appendChild(Header(headerData));
-  parentElement.insertAdjacentElement("beforebegin", headerElement);
+  parentElement.insertAdjacentElement("beforebegin", Header(headerData));
 
   const inputChat = viewEl.querySelector("#input__chat");
   const btnEnviar = viewEl.querySelector("#btn__modal");
@@ -95,30 +96,6 @@ const GroupChat = () => {
       console.error("Erro ao se comunicar com a OpenAI", error);
     }
   })();
-
-  // Promise.all(
-  //   personas.map(async (persona) => {
-  //     const response = await communicateWithOpenAI(
-  //       conversationHistories[persona.id - 1]
-  //     );
-  //     typing.innerHTML = `${persona.name} está digitando...`;
-  //     return response;
-  //   })
-  // )
-  //   .then((responses) => {
-  //     responses.forEach((response, index) => {
-  //       typing.innerHTML = "";
-  //       const message = {
-  //         role: "assistant",
-  //         content: response,
-  //       };
-  //       addMessageToPersona(message, index);
-  //       showMessageByPersona(message, index);
-  //     });
-  //   })
-  //   .catch((error) => {
-  //     console.error("Erro ao se comunicar com a OpenAI", error);
-  //   });
 
   btnEnviar.addEventListener("click", async () => {
     const sendMessage = inputChat.value;
