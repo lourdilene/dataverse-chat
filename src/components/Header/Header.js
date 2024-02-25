@@ -3,7 +3,7 @@ import Modal from "../Modal/Modal.js";
 // console.log(window.location.href);
 const url = window.location.href;
 const chatPage = url.split("?")[0].split("/").pop();
-console.log(chatPage);
+// console.log(chatPage);
 
 // if (page === "individual-chat" || page === "group-chat") {
 // const mobileToggle = header.querySelector("#mobile");

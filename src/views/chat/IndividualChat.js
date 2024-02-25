@@ -2,6 +2,9 @@ import data from "../../data/dataset.js";
 import { Header } from "../../components/Header/Header.js";
 import { communicateWithOpenAI } from "../../lib/openAIApi.js";
 
+const bodyElement = document.querySelector("body");
+bodyElement.classList.add("chat-page");
+
 const IndividualChat = ({ id }) => {
   const persona = data.find((persona) => persona.id === parseInt(id));
   const viewEl = document.createElement("main");
@@ -36,9 +39,7 @@ const IndividualChat = ({ id }) => {
   `;
   const parentElement = document.getElementById("root");
 
-  const headerElement = document.createElement("header");
-  headerElement.appendChild(Header(headerData));
-  parentElement.insertAdjacentElement("beforebegin", headerElement);
+  parentElement.insertAdjacentElement("beforebegin", Header(headerData));
 
   const inputChat = viewEl.querySelector("#input__chat");
   const btnEnviar = viewEl.querySelector("#btn__modal");
@@ -71,7 +72,6 @@ const IndividualChat = ({ id }) => {
     updateChat({ role: "user", content: sendMessage });
     inputChat.value = "";
 
-    // const typing = viewEl.querySelector("#typing");
     typing.innerHTML = `${persona.name} está digitando...`;
 
     try {
