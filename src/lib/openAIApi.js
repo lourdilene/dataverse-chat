@@ -4,6 +4,11 @@ const OPENAI_API_KEY = getApiKey();
 
 export const communicateWithOpenAI = (messages) => {
   return new Promise((resolve, reject) => {
+    if (!OPENAI_API_KEY) {
+      const error = new Error("Chave da API não especificada.");
+      return reject(error);
+    }
+
     const url = "https://api.openai.com/v1/chat/completions";
     const headers = {
       "Content-Type": "application/json",
@@ -21,7 +26,11 @@ export const communicateWithOpenAI = (messages) => {
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Erro ao fazer a solicitação.");
+          if (response.status === 401) {
+            throw new Error("Erro de autenticação. Verifique sua chave API.");
+          } else {
+            throw new Error("Erro ao fazer a solicitação.");
+          }
         }
         return response.json();
       })
@@ -29,8 +38,7 @@ export const communicateWithOpenAI = (messages) => {
         resolve(data.choices[0].message.content);
       })
       .catch((error) => {
-        // eslint-disable-next-line no-console
-        console.error("Erro ao fazer a solicitação.", error);
+        console.error("Erro ao fazer a solicitação:", error);
         reject(error);
       });
   });

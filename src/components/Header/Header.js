@@ -1,21 +1,24 @@
 /* eslint-disable indent */
 import Modal from "../Modal/Modal.js";
-// console.log(window.location.href);
+
 const url = window.location.href;
 const chatPage = url.split("?")[0].split("/").pop();
-// console.log(chatPage);
 
-// if (page === "individual-chat" || page === "group-chat") {
-// const mobileToggle = header.querySelector("#mobile");
-// mobileToggle.classList.remove("header__toggle");
-// mobileToggle.classList.add("hide");
-// }
-
-export const Header = (data) => {
+export const Header = (data = {}) => {
   const header = document.createElement("header");
+
+  // const data = {
+  //   img: {
+  //     class: "image__logo",
+  //     src: "./images/logoDesktop.png",
+  //     alt: "Logo DataverseChat",
+  //   },
+  //   description: "",
+  // };
 
   header.innerHTML = `
           <div class="header">
+          <a href="/" class="header__link" id="logo">Home</a>
           <div id="headerContainer" class="header__logo-container">
           <img class="${data.img.class}" src="${data.img.src}" alt="${
     data.img.alt
@@ -28,9 +31,11 @@ export const Header = (data) => {
               : ``
           }
           </div>
+          <a id="mobile" href="#" class="header__toggle">
+          <i class="fas fa-ellipsis-v header__toggle-icon"></i>
+        </a>
         </div>
         <div class="header__links--desktop">
-          ${chatPage ? `<a href="/" class="header__link">Home</a>` : ``}
           ${
             chatPage === "group-chat"
               ? ``
@@ -38,9 +43,6 @@ export const Header = (data) => {
           }
           <a id="abrirModalClick" href="#" class="header__link">Chave api</a>
         </div>
-        <a id="mobile" href="#" class="header__toggle">
-          <i class="fa fa-bars header__toggle-icon"></i>
-        </a>
           </div>
           <div id="myLinks" class="header__mobile-links">
           <a href="group-chat" class="header__mobile-link">Grupo Chat</a>
@@ -54,7 +56,7 @@ export const Header = (data) => {
   const mobileToggle = header.querySelector("#mobile");
   const mobileLinks = header.querySelector("#myLinks");
 
-  if (chatPage === "group-chat") {
+  if (chatPage === "group-chat" || chatPage === "individual-chat") {
     const headerContainer = header.querySelector("#headerContainer");
     headerContainer.classList.add("justify-content-center");
   }

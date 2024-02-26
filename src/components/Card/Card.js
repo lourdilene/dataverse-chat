@@ -8,7 +8,7 @@ export const Card = (item) => {
             <dl itemscope itemtype="#">
               <dt><img src="${item.imageUrl}" alt="Imagem do Filme" itemprop="${item.name}" class="card-list__image" /></dt>
               <dd itemprop="name" class="card-list__name">${item.name}</dd>
-              <dd itemprop="description" class="card-list__description">${item.description}</dd>
+              <dd itemprop="description" class="card-list__description">${item.shortDescription}</dd>
             </dl>
           </a>
         </div>

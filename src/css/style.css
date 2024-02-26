@@ -77,3 +77,25 @@ a {
 .justify-content-left {
   justify-content: left;
 }
+
+.input-field {
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.green-button {
+  background-color: var(--green-600);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+.green-button:hover {
+  background-color: var(--green-500);
+}
