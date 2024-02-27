@@ -87,8 +87,8 @@ a {
   outline: none;
 }
 
-.green-button {
-  background-color: var(--green-600);
+.button {
+  /* background-color: var(--green-600); */
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -97,6 +97,23 @@ a {
   outline: none;
 }
 
-.green-button:hover {
+.color-green {
+  background-color: var(--green-600);
+}
+
+.color-green-text {
+  color: var(--green-600);
+  font-weight: 500;
+}
+
+.color-green:hover {
   background-color: var(--green-500);
+}
+
+.color-red {
+  background-color: #b73e3e;
+}
+
+.color-red:hover {
+  background-color: #b73e3e;
 }

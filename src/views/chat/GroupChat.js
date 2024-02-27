@@ -34,7 +34,7 @@ const GroupChat = () => {
           <div id="typing"></div>
           <div class="input__chat">
           <input type="text" name="question" value="" id="input__chat" class="input-field"/>
-          <button id="btn__modal" class="green-button">Enviar</button>
+          <button id="btn__modal" class="button color-green">Enviar</button>
           </div>
         </div>
       </div>

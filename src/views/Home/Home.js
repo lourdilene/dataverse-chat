@@ -44,7 +44,7 @@ const Home = () => {
           <option value="desc">Z-A</option>
         </select>
       </div>
-      <button id="btn-limpar" class="green-button">
+      <button id="btn-limpar" class="button color-green">
         Limpar Filtros
       </button>
     </section>
@@ -54,8 +54,6 @@ const Home = () => {
 
   const rootElement = document.getElementById("root");
 
-  // const headerElement = document.createElement("header");
-  // headerElement.appendChild(Header(headerContent));
   rootElement.insertAdjacentElement("beforebegin", Header(headerContent));
 
   const footerElement = document.createElement("footer");
