@@ -2,7 +2,8 @@
 import Modal from "../Modal/Modal.js";
 
 const url = window.location.href;
-const chatPage = url.split("?")[0].split("/").pop();
+const cleanUrl = url.split("#")[0];
+const chatPage = cleanUrl.split("?")[0].split("/").pop();
 
 export const Header = (data) => {
   const header = document.createElement("header");
