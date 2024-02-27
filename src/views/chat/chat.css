@@ -111,12 +111,13 @@
   color: #d63031;
   font-weight: bold;
   margin-top: 10px;
-  display: flex;
+  /* display: flex; */
   flex-direction: row;
   align-items: center;
   justify-content: center;
   background-color: var(--color-white);
   padding: 0.5rem;
+  border-radius: 1rem;
 }
 
 @media only screen and (min-width: 768px) {
@@ -170,10 +171,23 @@
   .persona-list__link {
     display: flex;
     flex-direction: row;
+    gap: 0.5rem;
   }
 
   .persona-group:hover {
     background-color: #336e59;
     color: var(--color-white);
+  }
+
+  .persona-description:hover {
+    color: var(--color-white);
+  }
+
+  .persona-title {
+    font-weight: 500;
+  }
+
+  .persona-subTitle {
+    /* color: var(--color-text-01); */
   }
 }

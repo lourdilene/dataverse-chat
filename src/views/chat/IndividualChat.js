@@ -27,7 +27,7 @@ const IndividualChat = ({ id }) => {
     <div class="chat-content individual__chat-content">
       <div id="chat">
         <div id="messages"></div>
-        <div id="messageError" class="error-message"></div>
+        <div id="messageError" class="error-message hide"></div>
       </div>
       <div class="input-content">
       <div id="typing"></div>
@@ -66,6 +66,7 @@ const IndividualChat = ({ id }) => {
       return response;
     } catch (error) {
       typing.innerHTML = "";
+      messageError.classList.add("show");
       messageError.innerHTML = error.message;
       console.error("Erro ao se comunicar com a OpenAI", error);
     }
@@ -84,6 +85,7 @@ const IndividualChat = ({ id }) => {
       typing.innerHTML = "";
     } catch (error) {
       typing.innerHTML = "";
+      messageError.classList.add("show");
       messageError.innerHTML = error.message;
       console.error("Erro ao se comunicar com a OpenAI", error);
     }

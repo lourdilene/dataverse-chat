@@ -28,6 +28,7 @@ const GroupChat = () => {
       <div class="mobile-content">
         <div id="chat">
           <div id="messages"></div>
+          <div id="messageError" class="error-message hide"></div>
         </div>
         <div class="input-content">
           <div id="typing"></div>
@@ -50,6 +51,7 @@ const GroupChat = () => {
   const btnEnviar = viewEl.querySelector("#btn__modal");
   const messagesChat = viewEl.querySelector("#messages");
   const typing = viewEl.querySelector("#typing");
+  const messageError = viewEl.querySelector("#messageError");
 
   const conversationHistories = [];
 
@@ -93,6 +95,9 @@ const GroupChat = () => {
         showMessageByPersona(message, index);
       });
     } catch (error) {
+      typing.innerHTML = "";
+      messageError.classList.add("show");
+      messageError.innerHTML = error.message;
       console.error("Erro ao se comunicar com a OpenAI", error);
     }
   })();
@@ -125,6 +130,9 @@ const GroupChat = () => {
         showMessageByPersona(message, index);
       });
     } catch (error) {
+      typing.innerHTML = "";
+      messageError.classList.add("show");
+      messageError.innerHTML = error.message;
       console.error("Erro ao se comunicar com a OpenAI", error);
     }
   });
