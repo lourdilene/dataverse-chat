@@ -4,22 +4,12 @@ import Modal from "../Modal/Modal.js";
 const url = window.location.href;
 const chatPage = url.split("?")[0].split("/").pop();
 
-export const Header = (data = {}) => {
+export const Header = (data) => {
   const header = document.createElement("header");
-
-  // const data = {
-  //   img: {
-  //     class: "image__logo",
-  //     src: "./images/logoDesktop.png",
-  //     alt: "Logo DataverseChat",
-  //   },
-  //   description: "",
-  // };
 
   header.innerHTML = `
           <div class="header">
-          <a href="/" class="header__link" id="logo">Home</a>
-          <div id="headerContainer" class="header__logo-container">
+          <div id="headerContainer" class="header__logo-container justify-content-center">
           <img class="${data.img.class}" src="${data.img.src}" alt="${
     data.img.alt
   }"/>
@@ -31,22 +21,24 @@ export const Header = (data = {}) => {
               : ``
           }
           </div>
+          </div>
           <a id="mobile" href="#" class="header__toggle">
           <i class="fas fa-ellipsis-v header__toggle-icon"></i>
         </a>
-        </div>
         <div class="header__links--desktop">
+        ${chatPage ? `<a href="/" class="header__link">Home</a>` : ``}
           ${
             chatPage === "group-chat"
               ? ``
-              : `<a href="group-chat" class="header__link">Grupo Chat</a>`
+              : `<a href="group-chat" class="header__link">Grupo</a>`
           }
-          <a id="abrirModalClick" href="#" class="header__link">Chave api</a>
+          <a id="abrirModalClick" href="#" class="header__link">API</a>
         </div>
           </div>
           <div id="myLinks" class="header__mobile-links">
-          <a href="group-chat" class="header__mobile-link">Grupo Chat</a>
-          <a id="abrirModalClickMobile" href="#" class="header__mobile-link">Chave api</a>
+          ${chatPage ? `<a href="/" class="header__mobile-link">Home</a>` : ``}
+          <a href="group-chat" class="header__mobile-link">Grupo</a>
+          <a id="abrirModalClickMobile" href="#" class="header__mobile-link">API</a>
         </div>
   `;
 
@@ -56,9 +48,9 @@ export const Header = (data = {}) => {
   const mobileToggle = header.querySelector("#mobile");
   const mobileLinks = header.querySelector("#myLinks");
 
-  if (chatPage === "group-chat" || chatPage === "individual-chat") {
+  if (!chatPage) {
     const headerContainer = header.querySelector("#headerContainer");
-    headerContainer.classList.add("justify-content-center");
+    headerContainer.classList.add("justify-content-left");
   }
 
   abrirModalClick.addEventListener("click", () => {
