@@ -11,8 +11,8 @@ export const renderPersona = (data) => {
         <a href="individual-chat?id=${item.id}" class="persona-list__link">
           <img src="${item.imageUrlChat}" alt="image item" style="width: 50px; height: 50px;">
           <div class="persona-description">
-            <p>${item.name}</p>
-            <p>${item.quote}</p>
+              <p class="persona-title">${item.name}</p>
+              <p class="persona-subTitle">${item.quote}</p>
           </div>
         </a>
       </li>
