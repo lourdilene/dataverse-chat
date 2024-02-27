@@ -44,7 +44,7 @@ const Home = () => {
           <option value="desc">Z-A</option>
         </select>
       </div>
-      <button id="btn-limpar" class="btn-limpar">
+      <button id="btn-limpar" class="green-button">
         Limpar Filtros
       </button>
     </section>

@@ -27,12 +27,13 @@ const IndividualChat = ({ id }) => {
     <div class="chat-content individual__chat-content">
       <div id="chat">
         <div id="messages"></div>
+        <div id="messageError" class="error-message"></div>
       </div>
       <div class="input-content">
       <div id="typing"></div>
       <div class="input__chat">
-        <input type="text" name="question" value="" id="input__chat"/>
-        <button id="btn__modal">ENVIAR</button>
+        <input type="text" name="question" value="" id="input__chat" class="input-field"/>
+        <button id="btn__modal" class="green-button">Enviar</button>
       </div>
       </div>
     </div>
@@ -45,6 +46,7 @@ const IndividualChat = ({ id }) => {
   const btnEnviar = viewEl.querySelector("#btn__modal");
   const messagesChat = viewEl.querySelector("#messages");
   const typing = viewEl.querySelector("#typing");
+  const messageError = viewEl.querySelector("#messageError");
 
   const conversationHistory = [
     { role: "system", content: `Você é um ${personaDescriptionToChat}` },
@@ -63,6 +65,8 @@ const IndividualChat = ({ id }) => {
       typing.innerHTML = "";
       return response;
     } catch (error) {
+      typing.innerHTML = "";
+      messageError.innerHTML = error.message;
       console.error("Erro ao se comunicar com a OpenAI", error);
     }
   })();
@@ -79,6 +83,8 @@ const IndividualChat = ({ id }) => {
       updateChat({ role: "assistant", content: aiResponse });
       typing.innerHTML = "";
     } catch (error) {
+      typing.innerHTML = "";
+      messageError.innerHTML = error.message;
       console.error("Erro ao se comunicar com a OpenAI", error);
     }
   });

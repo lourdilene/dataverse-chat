@@ -11,8 +11,8 @@ const Modal = () => {
     <div class="modal__content">
       <p>API KEY ChatGPT</p>
         <div class="modal__input-container">
-          <input type="text" id="modal__input" />
-          <button id="modal__button">SALVAR</button>
+          <input type="text" name="question" value="" id="modal__input" class="input-field"/>
+          <button id="modal__button" class="green-button">Salvar</button>
         </div>
     </div>
   </div>

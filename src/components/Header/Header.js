@@ -1,22 +1,15 @@
 /* eslint-disable indent */
 import Modal from "../Modal/Modal.js";
-// console.log(window.location.href);
+
 const url = window.location.href;
 const chatPage = url.split("?")[0].split("/").pop();
-// console.log(chatPage);
-
-// if (page === "individual-chat" || page === "group-chat") {
-// const mobileToggle = header.querySelector("#mobile");
-// mobileToggle.classList.remove("header__toggle");
-// mobileToggle.classList.add("hide");
-// }
 
 export const Header = (data) => {
   const header = document.createElement("header");
 
   header.innerHTML = `
           <div class="header">
-          <div id="headerContainer" class="header__logo-container">
+          <div id="headerContainer" class="header__logo-container justify-content-center">
           <img class="${data.img.class}" src="${data.img.src}" alt="${
     data.img.alt
   }"/>
@@ -28,23 +21,24 @@ export const Header = (data) => {
               : ``
           }
           </div>
-        </div>
+          </div>
+          <a id="mobile" href="#" class="header__toggle">
+          <i class="fas fa-ellipsis-v header__toggle-icon"></i>
+        </a>
         <div class="header__links--desktop">
-          ${chatPage ? `<a href="/" class="header__link">Home</a>` : ``}
+        ${chatPage ? `<a href="/" class="header__link">Home</a>` : ``}
           ${
             chatPage === "group-chat"
               ? ``
-              : `<a href="group-chat" class="header__link">Grupo Chat</a>`
+              : `<a href="group-chat" class="header__link">Grupo</a>`
           }
-          <a id="abrirModalClick" href="#" class="header__link">Chave api</a>
+          <a id="abrirModalClick" href="#" class="header__link">API</a>
         </div>
-        <a id="mobile" href="#" class="header__toggle">
-          <i class="fa fa-bars header__toggle-icon"></i>
-        </a>
           </div>
           <div id="myLinks" class="header__mobile-links">
-          <a href="group-chat" class="header__mobile-link">Grupo Chat</a>
-          <a id="abrirModalClickMobile" href="#" class="header__mobile-link">Chave api</a>
+          ${chatPage ? `<a href="/" class="header__mobile-link">Home</a>` : ``}
+          <a href="group-chat" class="header__mobile-link">Grupo</a>
+          <a id="abrirModalClickMobile" href="#" class="header__mobile-link">API</a>
         </div>
   `;
 
@@ -54,9 +48,9 @@ export const Header = (data) => {
   const mobileToggle = header.querySelector("#mobile");
   const mobileLinks = header.querySelector("#myLinks");
 
-  if (chatPage === "group-chat") {
+  if (!chatPage) {
     const headerContainer = header.querySelector("#headerContainer");
-    headerContainer.classList.add("justify-content-center");
+    headerContainer.classList.add("justify-content-left");
   }
 
   abrirModalClick.addEventListener("click", () => {

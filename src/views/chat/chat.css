@@ -96,6 +96,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
 }
 
 .desktop-content {
@@ -104,6 +105,18 @@
 
 .individual__chat-content {
   width: 100%;
+}
+
+.error-message {
+  color: #d63031;
+  font-weight: bold;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-white);
+  padding: 0.5rem;
 }
 
 @media only screen and (min-width: 768px) {
@@ -140,7 +153,7 @@
 
   .persona-description {
     width: 100%;
-    background-color: var(--color-white);
+    /* background-color: var(--color-white); */
     display: flex;
     flex-direction: column;
     justify-content: left;
@@ -150,7 +163,17 @@
 
   #personas-group {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
+  }
+
+  .persona-list__link {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .persona-group:hover {
+    background-color: #336e59;
+    color: var(--color-white);
   }
 }
