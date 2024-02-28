@@ -76,6 +76,8 @@ Insert gif or link to demo
 * [Conversing with AI](https://platform.openai.com/docs/api-reference/chat)
 * [Priming for Chatbots](https://learnprompting.org/es/docs/basics/priming_prompt)
 * [Build your application with AI](https://platform.openai.com/docs/quickstart/build-your-application)
+* [OpenAi Postman API](https://www.postman.com/devrel/workspace/openai/documentation/13183464-90abb798-cb85-43cb-ba3a-ae7941e968da)
+* [Community OpenAi](https://community.openai.com/)
 
 #### Tools
 
