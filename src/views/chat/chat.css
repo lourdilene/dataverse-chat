@@ -22,7 +22,9 @@
   align-items: center;
   /* height: 100%;   */
   width: 100%;
-  border-top: 2px solid var(--color-line);
+  /* border-top: 2px solid var(--color-line); */
+  font-style: italic;
+  flex-direction: column;
 }
 .input__chat {
   display: flex;
@@ -67,7 +69,7 @@
 
 .user-message {
   position: relative;
-  background-color: rgb(234, 250, 175);
+  background-color: rgb(224, 254, 223);
   border-radius: 10px 0px 10px 10px;
   padding: 1%;
   text-align: right;
@@ -81,7 +83,7 @@
   top: 0px;
   border-width: 5px;
   border-style: solid;
-  border-color: rgb(234, 250, 175) transparent transparent rgb(234, 250, 175);
+  border-color: rgb(224, 254, 223) transparent transparent rgb(224, 254, 223);
 }
 
 .chat {

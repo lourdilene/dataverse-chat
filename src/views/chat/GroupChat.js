@@ -31,8 +31,8 @@ const GroupChat = () => {
           <div id="messageError" class="error-message hide"></div>
         </div>
         <div class="input-content">
-          <div id="typing"></div>
-          <div class="input__chat">
+        <div id="typing"></div>
+        <div class="input__chat">
           <input type="text" name="question" value="" id="input__chat" class="input-field"/>
           <button id="btn__modal" class="button color-green">Enviar</button>
           </div>
@@ -83,7 +83,7 @@ const GroupChat = () => {
           const response = await communicateWithOpenAI(
             conversationHistories[persona.id - 1]
           );
-          typing.innerHTML = `${persona.name} está digitando...`;
+          typing.innerHTML = `${persona.name} está escrevendo...`;
           return response;
         })
       );
@@ -118,7 +118,7 @@ const GroupChat = () => {
           const response = await communicateWithOpenAI(
             conversationHistories[persona.id - 1]
           );
-          typing.innerHTML = `${persona.name} está digitando...`;
+          typing.innerHTML = `${persona.name} está escrevendo...`;
           return response;
         })
       );

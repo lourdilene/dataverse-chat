@@ -2,7 +2,6 @@ import { communicateWithOpenAI } from "../lib/openAIApi.js";
 import fetchMock from "jest-fetch-mock";
 
 fetchMock.enableMocks();
-
 jest.mock("../lib/apiKey.js", () => ({
   getApiKey: jest.fn(() => "fakeApiKey"),
 }));
