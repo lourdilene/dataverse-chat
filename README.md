@@ -20,9 +20,16 @@ Install my-project with npm
 ```
 
 ### High-fidelity prototype
+#### Home Page
 ![Home Page](https://raw.githubusercontent.com/lourdilene/dataverse-chat-app/main/src/images/layout-figma/homepage.png)
+
+#### Individual Chat
 ![Individual Chat](https://raw.githubusercontent.com/lourdilene/dataverse-chat-app/main/src/images/layout-figma/individual-chat.png)
+
+#### Group Chat
 ![Group Chat](https://raw.githubusercontent.com/lourdilene/dataverse-chat-app/main/src/images/layout-figma/group-chat.png)
+
+#### Mobile
 ![Mobile](https://raw.githubusercontent.com/lourdilene/dataverse-chat-app/main/src/images/layout-figma/mobile.png)
 
 ### Screenshots
