@@ -59,7 +59,7 @@ const IndividualChat = ({ id }) => {
 
   (async () => {
     try {
-      typing.innerHTML = `${persona.name} está digitando...`;
+      typing.innerHTML = `${persona.name} está escrevendo...`;
       const response = await communicateWithOpenAI(conversationHistory);
       updateChat({ role: "assistant", content: response });
       typing.innerHTML = "";
@@ -77,7 +77,7 @@ const IndividualChat = ({ id }) => {
     updateChat({ role: "user", content: sendMessage });
     inputChat.value = "";
 
-    typing.innerHTML = `${persona.name} está digitando...`;
+    typing.innerHTML = `${persona.name} está escrevendo...`;
 
     try {
       const aiResponse = await communicateWithOpenAI(conversationHistory);

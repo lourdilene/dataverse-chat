@@ -107,6 +107,7 @@
   /* clip-path: padding-box; */
   align-items: center;
   height: 4vh;
+  padding: 1.5rem 2rem 1.5rem 0;
 }
 
 .header__links--desktop {
