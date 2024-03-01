@@ -20,6 +20,11 @@ Install my-project with npm
 ```
 
 ### High-fidelity prototype
+- [Home Page](https://raw.githubusercontent.com/lourdilene/dataverse-chat-app/main/src/images/layout-figma/homepage.png)
+- [Individual Chat](https://raw.githubusercontent.com/lourdilene/dataverse-chat-app/main/src/images/layout-figma/individual-chat.png)
+- [Group Chat](https://raw.githubusercontent.com/lourdilene/dataverse-chat-app/main/src/images/layout-figma/group-chat.png)
+- [Mobile](https://raw.githubusercontent.com/lourdilene/dataverse-chat-app/main/src/images/layout-figma/mobile.png)
+
 ### Screenshots
 
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
@@ -31,6 +36,8 @@ Install my-project with npm
 - Card sorting
 - Individual chat
 - Group chat
+
+  
 ### 🔗 Links
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://personal-site-weld-six.vercel.app/)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lourdilene-souza/)
@@ -48,12 +55,21 @@ Javascript, HTML, CSS, Responsive web pages, SPA, API openAi, Nodejs.
 
 ### Lessons Learned
 
-What did you learn while building this project? What challenges did you face and how did you overcome them?
+In the journey of mastering JavaScript, one of the most pivotal concepts encountered is that of promises. Understanding promises and their role in handling asynchronous operations is essential for writing robust and efficient code. Promises provide a clean and organized way to deal with asynchronous tasks, allowing for better control over the flow of execution.
 
+One valuable lesson learned is the power of Promise.all. This method enables us to execute multiple promises concurrently and wait for all of them to resolve, providing a significant boost in performance for tasks that can be parallelized. By leveraging Promise.all, we can optimize the efficiency of our applications by executing multiple asynchronous operations simultaneously, thereby reducing overall latency and improving user experience.
+
+Another area of exploration is integrating external APIs into our applications, such as the OpenAI API. Utilizing APIs allows us to access a wide range of functionalities and data, enriching the capabilities of our applications. When working with APIs asynchronously, promises play a crucial role in handling asynchronous requests and managing the responses effectively. Leveraging promises ensures that our application remains responsive and resilient even when interacting with external services.
+
+Furthermore, understanding the difference between synchronous and asynchronous functions is paramount. Synchronous functions execute one after the other, blocking the execution flow until each operation completes. In contrast, asynchronous functions allow for non-blocking execution, enabling concurrent operations without halting the entire program. Mastering the art of asynchronous programming empowers developers to create responsive and scalable applications capable of handling complex tasks efficiently.
+
+In the realm of testing, mock texts prove to be invaluable. Mocking allows us to simulate external dependencies and control the behavior of functions during testing, facilitating comprehensive and robust test coverage. By creating mock texts for external API responses or asynchronous operations, we can isolate components for testing, ensuring their functionality in various scenarios without relying on real-world data.
+
+In conclusion, navigating the intricacies of promises, Promise.all, asynchronous programming, API integration, and mock texts equips developers with the skills necessary to build high-performance and resilient JavaScript applications. Embracing these concepts fosters a deeper understanding of asynchronous JavaScript and empowers developers to tackle complex challenges with confidence.
 
 ### Demo
 
-Insert gif or link to demo
+Insert gif or link to demo.
 
 
 ###  Reference Content
