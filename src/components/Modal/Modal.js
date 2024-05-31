@@ -32,10 +32,7 @@ const Modal = () => {
 
   const firstSix = apiKey.slice(0, 6);
   const lastSix = apiKey.slice(-6);
-  const middleMaskLength = Math.max(
-    apiKey.length - firstSix.length - lastSix.length,
-    0
-  );
+  const middleMaskLength = apiKey.length - firstSix.length - lastSix.length;
   const middleMasked = "*".repeat(middleMaskLength);
   inputModal.value = `${firstSix}${middleMasked}${lastSix}`;
 
@@ -65,10 +62,8 @@ const Modal = () => {
 
         const firstSix = apiKey.slice(0, 6);
         const lastSix = apiKey.slice(-6);
-        const middleMaskLength = Math.max(
-          apiKey.length - firstSix.length - lastSix.length,
-          0
-        );
+        const middleMaskLength =
+          apiKey.length - firstSix.length - lastSix.length;
         const middleMasked = "*".repeat(middleMaskLength);
         inputModal.readOnly = true;
         return (inputModal.value = `${firstSix}${middleMasked}${lastSix}`);
