@@ -20,7 +20,9 @@ Install my-project with npm
 ```
 
 ## Project Apresentation
-[![Project](https://img.youtube.com/vi/G1y7sIzSTFM/0.jpg)](https://youtu.be/G1y7sIzSTFM)
+<a href="https://youtu.be/G1y7sIzSTFM">
+  <img src="https://img.youtube.com/vi/G1y7sIzSTFM/0.jpg" alt="Project" width="300"/>
+</a>
 
 
 ### Features
