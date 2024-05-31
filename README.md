@@ -19,22 +19,8 @@ Install my-project with npm
   npm run test
 ```
 
-### High-fidelity prototype
-#### Home Page
-![Home Page](https://raw.githubusercontent.com/lourdilene/dataverse-chat-app/main/src/images/layout-figma/homepage.png)
-
-#### Individual Chat
-![Individual Chat](https://raw.githubusercontent.com/lourdilene/dataverse-chat-app/main/src/images/layout-figma/individual-chat.png)
-
-#### Group Chat
-![Group Chat](https://raw.githubusercontent.com/lourdilene/dataverse-chat-app/main/src/images/layout-figma/group-chat.png)
-
-#### Mobile
-![Mobile](https://raw.githubusercontent.com/lourdilene/dataverse-chat-app/main/src/images/layout-figma/mobile.png)
-
-### Screenshots
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+### Project Apresentation
+![Project](https://youtu.be/G1y7sIzSTFM)
 
 
 ### Features
