@@ -21,7 +21,7 @@ Install my-project with npm
 
 ## Project Apresentation
 <a href="https://youtu.be/G1y7sIzSTFM">
-  <img src="https://img.youtube.com/vi/G1y7sIzSTFM/0.jpg" alt="Project" width="150"/>
+  <img src="https://img.youtube.com/vi/G1y7sIzSTFM/0.jpg" alt="Project" width="250"/>
 </a>
 
 
