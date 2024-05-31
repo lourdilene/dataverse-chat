@@ -19,8 +19,8 @@ Install my-project with npm
   npm run test
 ```
 
-### Project Apresentation
-![Project](https://youtu.be/G1y7sIzSTFM)
+## Project Apresentation
+[![Project](https://img.youtube.com/vi/G1y7sIzSTFM/0.jpg)](https://youtu.be/G1y7sIzSTFM)
 
 
 ### Features
