@@ -12,7 +12,7 @@ export const Footer = () => {
           <i class="fab fa-github footer__icon"></i>
         </a>
       </div>
-      <p class="footer__text">dataverseChat© 2024 Desenvolvido por Elizabete e Lourdilene</p>
+      <p class="footer__text">dataverseChat© 2024 Desenvolvido por Lourdilene Souza</p>
     </div>
   `;
   return footer;

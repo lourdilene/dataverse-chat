@@ -27,60 +27,89 @@ const Modal = () => {
   });
 
   const inputModal = modal.querySelector("#modal__input");
-
   const apiKey = getApiKey();
 
-  const firstSix = apiKey.slice(0, 6);
-  const lastSix = apiKey.slice(-6);
-  const middleMaskLength = apiKey.length - firstSix.length - lastSix.length;
-  const middleMasked = "*".repeat(middleMaskLength);
-  inputModal.value = `${firstSix}${middleMasked}${lastSix}`;
+  if (apiKey) {
+    const firstSix = apiKey.slice(0, 6);
+    const lastSix = apiKey.slice(-6);
+    const middleMaskLength = apiKey.length - firstSix.length - lastSix.length;
+    const middleMasked = "*".repeat(middleMaskLength);
+    inputModal.value = `${firstSix}${middleMasked}${lastSix}`;
 
-  const modalButton = modal.querySelector("#modal__button");
-  if (getApiKey() !== "") {
-    modalButton.value = "delete";
-    modalButton.textContent = "Excluir";
-    modalButton.classList.remove("color-green");
-    modalButton.classList.add("color-red");
-  }
+    const modalButton = modal.querySelector("#modal__button");
+    if (apiKey !== "") {
+      modalButton.value = "delete";
+      modalButton.textContent = "Excluir";
+      modalButton.classList.remove("color-green");
+      modalButton.classList.add("color-red");
+    }
 
-  modalButton.addEventListener("click", () => {
-    if (modalButton.value === "save") {
-      const newApiKey = inputModal.value;
-      const oldApiKey = getApiKey();
-      setApiKey(newApiKey);
-      if (newApiKey !== oldApiKey) {
-        modalMessage.innerHTML = "";
-        modalMessage.innerHTML = "Chave salva com sucesso !";
-        modalMessage.classList.add("color-green-text");
-        modalButton.value = "delete";
-        modalButton.textContent = "Excluir";
-        modalButton.classList.remove("color-green");
-        modalButton.classList.add("color-red");
+    modalButton.addEventListener("click", () => {
+      if (modalButton.value === "save") {
+        const newApiKey = inputModal.value;
+        const oldApiKey = getApiKey();
+        setApiKey(newApiKey);
+        if (newApiKey !== oldApiKey) {
+          modalMessage.innerHTML = "Chave salva com sucesso!";
+          modalMessage.classList.add("color-green-text");
+          modalButton.value = "delete";
+          modalButton.textContent = "Excluir";
+          modalButton.classList.remove("color-green");
+          modalButton.classList.add("color-red");
 
-        const apiKey = getApiKey();
-
-        const firstSix = apiKey.slice(0, 6);
-        const lastSix = apiKey.slice(-6);
-        const middleMaskLength =
-          apiKey.length - firstSix.length - lastSix.length;
-        const middleMasked = "*".repeat(middleMaskLength);
-        inputModal.readOnly = true;
-        return (inputModal.value = `${firstSix}${middleMasked}${lastSix}`);
+          const apiKey = getApiKey();
+          if (apiKey) {
+            const firstSix = apiKey.slice(0, 6);
+            const lastSix = apiKey.slice(-6);
+            const middleMaskLength =
+              apiKey.length - firstSix.length - lastSix.length;
+            const middleMasked = "*".repeat(middleMaskLength);
+            inputModal.readOnly = true;
+            inputModal.value = `${firstSix}${middleMasked}${lastSix}`;
+          }
+        }
+      } else if (modalButton.value === "delete") {
+        setApiKey("");
+        modalButton.value = "save";
+        modalButton.textContent = "Salvar";
+        modalButton.classList.remove("color-red");
+        modalButton.classList.add("color-green");
+        inputModal.readOnly = false;
+        modalMessage.innerHTML = "Chave removida com sucesso!";
+        inputModal.value = "";
       }
-    }
-    if (modalButton.value === "delete") {
-      setApiKey("");
-      modalButton.value = "save";
-      modalButton.textContent = "Salvar";
-      modalButton.classList.remove("color-red");
-      modalButton.classList.add("color-green");
-      inputModal.readOnly = false;
-      modalMessage.innerHTML = "";
-      modalMessage.innerHTML = "Chave removida com sucesso !";
-      return (inputModal.value = "");
-    }
-  });
+    });
+  } else {
+    // When apiKey is empty
+    inputModal.value = "";
+    const modalButton = modal.querySelector("#modal__button");
+
+    modalButton.addEventListener("click", () => {
+      if (modalButton.value === "save") {
+        const newApiKey = inputModal.value;
+        setApiKey(newApiKey);
+        if (newApiKey) {
+          modalMessage.innerHTML = "Chave salva com sucesso!";
+          modalMessage.classList.add("color-green-text");
+          modalButton.value = "delete";
+          modalButton.textContent = "Excluir";
+          modalButton.classList.remove("color-green");
+          modalButton.classList.add("color-red");
+
+          const apiKey = getApiKey();
+          if (apiKey) {
+            const firstSix = apiKey.slice(0, 6);
+            const lastSix = apiKey.slice(-6);
+            const middleMaskLength =
+              apiKey.length - firstSix.length - lastSix.length;
+            const middleMasked = "*".repeat(middleMaskLength);
+            inputModal.readOnly = true;
+            inputModal.value = `${firstSix}${middleMasked}${lastSix}`;
+          }
+        }
+      }
+    });
+  }
 
   modal.addEventListener("click", (event) => {
     if (event.target === modal) {
