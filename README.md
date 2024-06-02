@@ -22,7 +22,7 @@ Install my-project with npm
 
 ### Video Demo (GIF)
 
-![Project Demo]([https://github.com/lourdilene/dataverse-chat/blob/main/dataverse-chat.gif?raw=true])
+![Project Demo](https://github.com/lourdilene/dataverse-chat/blob/main/dataverse-chat.gif?raw=true)
 
 ### YouTube Presentation
 
