@@ -20,9 +20,8 @@ Install my-project with npm
 ```
 
 ## Project Apresentation
-<a href="https://youtu.be/G1y7sIzSTFM">
-  <img src="https://img.youtube.com/vi/G1y7sIzSTFM/0.jpg" alt="Project" width="250"/>
-</a>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/G1y7sIzSTFM?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 
 ### Features
