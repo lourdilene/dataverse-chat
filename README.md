@@ -7,8 +7,9 @@ This project displays several characters, each of whom can be interacted with th
 Install my-project with npm
 
 ```bash
-  npm install my-project
+  git clone git@github.com:lourdilene/dataverse-chat.git
   cd my-project
+  npm install my-project
   npm run start
 ```
 
