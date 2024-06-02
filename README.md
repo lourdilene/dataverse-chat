@@ -59,10 +59,6 @@ In the realm of testing, mock texts prove to be invaluable. Mocking allows us to
 
 In conclusion, navigating the intricacies of promises, Promise.all, asynchronous programming, API integration, and mock texts equips developers with the skills necessary to build high-performance and resilient JavaScript applications. Embracing these concepts fosters a deeper understanding of asynchronous JavaScript and empowers developers to tackle complex challenges with confidence.
 
-### Demo
-
-Insert gif or link to demo.
-
 ### Reference Content
 
 #### Front-end Development
