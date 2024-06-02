@@ -24,10 +24,6 @@ Install my-project with npm
 
 ![Project Demo](https://github.com/lourdilene/dataverse-chat/blob/main/dataverse-chat.gif?raw=true)
 
-### YouTube Presentation
-
-[![Watch the video](https://img.youtube.com/vi/G1y7sIzSTFM/0.jpg)](https://youtu.be/G1y7sIzSTFM)
-
 ### Features
 
 - Card filtering
