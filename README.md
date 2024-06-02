@@ -18,12 +18,15 @@ Install my-project with npm
   npm run test
 ```
 
-## Project Apresentation
+## Project Presentation
 
-<video width="320" height="240" autoplay loop muted playsinline>
-  <source src="dataverse-chat.webm" type="video/webm">
-  Your browser does not support the video tag.
-</video>
+### Video Demo (GIF)
+
+![Project Demo](path/to/your-gif.gif)
+
+### YouTube Presentation
+
+[![Watch the video](https://img.youtube.com/vi/G1y7sIzSTFM/0.jpg)](https://youtu.be/G1y7sIzSTFM)
 
 ### Features
 
